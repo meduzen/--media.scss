@@ -1,0 +1,29 @@
+/*
+ * MEDIA MIXIN
+ *
+ * A helper used by the other media queries mixins.
+ *
+ * Parameters:
+ *  $name: name of the CSS custom media query, without its double hyphen prefix
+ *  $argsFeatures: media features
+ *
+ * Example: `@include media(wide-as-hell, width >= 150em)` generates
+ * `@custom-media --wide-as-hell (min-width: 150em)`.
+ */
+
+@mixin media($name, $argsFeatures...) {
+  $features: null;
+
+  $index: 1;
+  @each $feature in $argsFeatures {
+    @if $index > 1 {
+      $features: #{$features ','};
+    }
+    $features: #{$features unquote('(#{$feature})')};
+
+    $index: $index + 1;
+  }
+
+  @custom-media --#{$name} #{$features};
+}
+
