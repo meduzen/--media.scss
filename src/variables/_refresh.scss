@@ -1,0 +1,29 @@
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/scan
+@custom-media --interlace (scan: interlace);
+@custom-media --progressive (scan: progressive);
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/update-frequency
+
+// update: none
+@custom-media --fps-0 (update: none);
+@custom-media --no-refresh (update: none);
+@custom-media --no-refresh-rate (update: none);
+
+// update: slow
+@custom-media --low-fps (update: slow);
+@custom-media --slow-refresh (update: slow);
+@custom-media --slow-refresh-rate (update: slow);
+
+// update: fast
+@custom-media --fps-60 (update: fast);
+@custom-media --fast-refresh (update: fast);
+@custom-media --fast-refresh-rate (update: fast);
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/grid
+
+// grid: 1
+@custom-media --grid-yes (grid: 1);
+
+// grid: 0
+@custom-media --grid-no (grid: 0);
+@custom-media --bitmap (grid: 0);

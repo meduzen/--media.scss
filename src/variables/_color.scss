@@ -1,0 +1,26 @@
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/monochrome
+@custom-media --monochrome (monochrome);
+@custom-media --not-monochrome (monochrome: 0);
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/color-gamut
+@custom-media --srgb (color-gamut: srgb);
+@custom-media --p3 (color-gamut: p3);
+@custom-media --rec2020 (color-gamut: rec2020);
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/inverted-colors
+@custom-media --inverted-colors (inverted-colors: inverted);
+@custom-media --no-inverted-colors (inverted-colors: none);
+
+// https://drafts.csswg.org/mediaqueries-5/#prefers-contrast
+
+// prefers-contrast: no-preference
+@custom-media --normal-contrast (prefers-contrast: no-preference);
+@custom-media --no-contrast-preference (prefers-contrast: no-preference);
+
+// prefers-contrast: high
+@custom-media --high-contrast (prefers-contrast: high);
+@custom-media --contrasted (prefers-contrast: high);
+
+// prefers-contrast: low
+@custom-media --low-contrast (prefers-contrast: low);
+

@@ -1,0 +1,10 @@
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+
+// prefers-reduced-motion: reduce
+@custom-media --reduced-motion (prefers-reduced-motion: reduce);
+@custom-media --less-motion (prefers-reduced-motion: reduce);
+
+// prefers-reduced-motion: no-preference
+@custom-media --no-motion-preference (prefers-reduced-motion: no-preference);
+@custom-media --motion (prefers-reduced-motion: no-preference);
+@custom-media --full-motion (prefers-reduced-motion: no-preference);

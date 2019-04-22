@@ -1,0 +1,30 @@
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode
+@custom-media --minimal-ui (display-mode: minimal-ui);
+@custom-media --fullscreen (display-mode: fullscreen);
+@custom-media --standalone (display-mode: standalone);
+@custom-media --browser (display-mode: browser);
+
+// https://drafts.csswg.org/mediaqueries-5/#prefers-color-scheme
+
+// prefers-color-scheme: dark
+@custom-media --dark (prefers-color-scheme: dark);
+
+// prefers-color-scheme: light
+@custom-media --light (prefers-color-scheme: light);
+
+// prefers-color-scheme: no-preference
+@custom-media --any-theme (prefers-color-scheme: no-preference);
+@custom-media --any-color-scheme (prefers-color-scheme: no-preference);
+@custom-media --no-theme-preference (prefers-color-scheme: no-preference);
+@custom-media --no-color-scheme-preference (prefers-color-scheme: no-preference);
+
+// https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-transparency
+
+// prefers-reduced-transparency: reduce
+@custom-media --reduced-transparency (prefers-reduced-transparency: reduce);
+@custom-media --less-transparency (prefers-reduced-transparency: reduce);
+
+// prefers-reduced-transparency: no-preference
+@custom-media --no-transparency-preference (prefers-reduced-transparency: no-preference);
+@custom-media --transparency (prefers-reduced-transparency: no-preference);
+@custom-media --full-transparency (prefers-reduced-transparency: no-preference);

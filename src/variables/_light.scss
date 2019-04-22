@@ -1,0 +1,4 @@
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/light-level
+@custom-media --light-dim (light-level: dim);
+@custom-media --light-normal (light-level: normal);
+@custom-media --light-washed (light-level: washed);

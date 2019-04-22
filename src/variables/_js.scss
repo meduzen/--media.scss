@@ -1,0 +1,4 @@
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/scripting
+@custom-media --js (scripting: enabled);
+@custom-media --no-js (scripting: none);
+@custom-media --js-initial-only (scripting: initial-only);
