@@ -1,0 +1,25 @@
+{
+  "name": "--media.scss",
+  "version": "0.1",
+  "description": "A set of SCSS mixins and variables to organize custom media queries.",
+  "main": "src/dash-dash-media.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "css",
+    "media queries",
+    "custom media queries",
+    "mixins",
+    "variables",
+    "sass",
+    "scss"
+  ],
+  "homepage": "https://github.com/meduzen/--media.scss",
+  "author": "Mehdi Merah <hi@mehdi.cc>",
+  "license": "WTFPL",
+  "repository": "github:meduzen/--media.scss.git",
+  "bugs": {
+    "url": "https://github.com/meduzen/--media.scss/issues"
+  }
+}
