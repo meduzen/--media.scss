@@ -1,0 +1,42 @@
+/* RESOLUTION (PIXEL DENSITY) IN DPPX
+ *
+ * Turns a SASS list into resolution custom media queries.
+ *
+ * Parameters:
+ *  $densities: a SASS list with resolutions names and their values in DPPX
+ *  $from-prefix (`dpi-from-`): the _from_ prefix when resolutions >= density
+ *  $exact-prefix (`dpi-`): the prefix when resolutions == density
+ *  $to-prefix (`dpi-to-`): the _to_ prefix when resolutions < density
+ *
+ * Example usage:
+ *
+ * $dppx: ('1x': 1, '2x': 2, 'switch': 2.46875);
+ * @include media-resolution($dppx);
+ *
+ * Available custom media queries:
+ *
+ *    --dpi-from-1x, --dpi-from-2x,--dpi-from-switch
+ *    --dpi-1x, --dpi-2x, --dpi-switch
+ *    --dpi-to-1x, --dpi-to-2x, --dpi-to-switch
+ *
+ */
+
+@mixin media-resolution($densities, $from-prefix: 'dpi-from-', $exact-prefix: 'dpi-', $to-prefix: 'dpi-to-') {
+  @each $name, $density in $densities {
+    @include media-from-resolution($name, $density, $from-prefix);
+    @include media-exact-resolution($name, $density, $exact-prefix);
+    @include media-to-resolution($name, $density, $to-prefix);
+  }
+}
+
+@mixin media-from-resolution($name, $density, $prefix: null) {
+  @include media(#{$prefix}#{$name}, 'resolution >=' #{$density}dppx, 'resolution >=' #{$density * 96}dpi);
+}
+
+@mixin media-exact-resolution($name, $density, $prefix: null) {
+  @include media(#{$prefix}#{$name}, unquote('resolution:') #{$density}dppx, unquote('resolution:') #{$density * 96}dpi);
+}
+
+@mixin media-to-resolution($name, $density, $prefix: null) {
+  @include media(#{$prefix}#{$name}, 'resolution <' #{$density}dppx, 'resolution <' #{$density * 96}dpi);
+}

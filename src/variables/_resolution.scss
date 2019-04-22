@@ -1,0 +1,16 @@
+$dppx: (
+  '1x': 1, // 96 dpi
+  '2x': 2, // 192 dpi
+  'switch': 2.46875, // 237ppi, 1280px * 720px, 6.2 inches
+);
+
+// --dpi-from-1x, --dpi-from-2x,--dpi-from-switch
+// --dpi-1x, --dpi-2x, --dpi-switch
+// --dpi-to-1x, --dpi-to-2x, --dpi-to-switch
+@include media-resolution($dppx);
+
+// --hidpi
+@include media-from-resolution('hidpi', 1.3);
+
+// --ldpi
+@include media-to-resolution('ldpi', 1.3);
