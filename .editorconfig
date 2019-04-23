@@ -7,7 +7,7 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 # 4 spaces indentation
-[*.{json}]
+[*.{json, html}]
 indent_style = space
 indent_size = 4
 
@@ -17,7 +17,7 @@ indent_style = space
 indent_size = 4
 
 # 2 spaces indentation
-[*.{js,css,scss,html}]
+[*.{js,css,scss}]
 indent_style = space
 indent_size = 2
 
