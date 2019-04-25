@@ -19,6 +19,8 @@
  *    --dpi-1x, --dpi-2x, --dpi-switch
  *    --dpi-to-1x, --dpi-to-2x, --dpi-to-switch
  *
+ * Note: IE doesn’t support _dppx_, that’s why _dpi_ is used, too:
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/resolution
  */
 
 @mixin media-resolution($densities, $from-prefix: 'dpi-from-', $exact-prefix: 'dpi-', $to-prefix: 'dpi-to-') {
