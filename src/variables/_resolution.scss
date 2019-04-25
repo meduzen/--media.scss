@@ -7,10 +7,10 @@ $dppx: (
 // --dpi-from-1x, --dpi-from-2x,--dpi-from-switch
 // --dpi-1x, --dpi-2x, --dpi-switch
 // --dpi-to-1x, --dpi-to-2x, --dpi-to-switch
-@include media-resolution($dppx);
+@include --resolution($dppx);
 
 // --hidpi
-@include media-from-resolution('hidpi', 1.3);
+@include --resolution-from('hidpi', 1.3);
 
 // --ldpi
-@include media-to-resolution('ldpi', 1.3);
+@include --resolution-to('ldpi', 1.3);

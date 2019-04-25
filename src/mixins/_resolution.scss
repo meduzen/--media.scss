@@ -11,7 +11,7 @@
  * Example usage:
  *
  * $dppx: ('1x': 1, '2x': 2, 'switch': 2.46875);
- * @include media-resolution($dppx);
+ * @include --resolution($dppx);
  *
  * Available custom media queries:
  *
@@ -23,22 +23,22 @@
  * https://developer.mozilla.org/en-US/docs/Web/CSS/resolution
  */
 
-@mixin media-resolution($densities, $from-prefix: 'dpi-from-', $exact-prefix: 'dpi-', $to-prefix: 'dpi-to-') {
+@mixin --resolution($densities, $from-prefix: 'dpi-from-', $exact-prefix: 'dpi-', $to-prefix: 'dpi-to-') {
   @each $name, $density in $densities {
-    @include media-from-resolution($name, $density, $from-prefix);
-    @include media-exact-resolution($name, $density, $exact-prefix);
-    @include media-to-resolution($name, $density, $to-prefix);
+    @include --resolution-from($name, $density, $from-prefix);
+    @include --resolution-is($name, $density, $exact-prefix);
+    @include --resolution-to($name, $density, $to-prefix);
   }
 }
 
-@mixin media-from-resolution($name, $density, $prefix: null) {
-  @include media(#{$prefix}#{$name}, 'resolution >=' #{$density}dppx, 'resolution >=' #{$density * 96}dpi);
+@mixin --resolution-from($name, $density, $prefix: null) {
+  @include --media(#{$prefix}#{$name}, 'resolution >=' #{$density}dppx, 'resolution >=' #{$density * 96}dpi);
 }
 
-@mixin media-exact-resolution($name, $density, $prefix: null) {
-  @include media(#{$prefix}#{$name}, unquote('resolution:') #{$density}dppx, unquote('resolution:') #{$density * 96}dpi);
+@mixin --resolution-is($name, $density, $prefix: null) {
+  @include --media(#{$prefix}#{$name}, unquote('resolution:') #{$density}dppx, unquote('resolution:') #{$density * 96}dpi);
 }
 
-@mixin media-to-resolution($name, $density, $prefix: null) {
-  @include media(#{$prefix}#{$name}, 'resolution <' #{$density}dppx, 'resolution <' #{$density * 96}dpi);
+@mixin --resolution-to($name, $density, $prefix: null) {
+  @include --media(#{$prefix}#{$name}, 'resolution <' #{$density}dppx, 'resolution <' #{$density * 96}dpi);
 }

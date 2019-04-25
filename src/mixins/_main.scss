@@ -7,11 +7,12 @@
  *  $name: name of the CSS custom media query, without its double hyphen prefix
  *  $argsFeatures: media features
  *
- * Example: `@include media(wide-as-hell, width >= 150em)` generates
+ * Example: `@include --media(wide-as-hell, width >= 150em)`
+ * and `@include --m(wide-as-hell, width >= 150em)` both generates
  * `@custom-media --wide-as-hell (min-width: 150em)`.
  */
 
-@mixin media($name, $argsFeatures...) {
+@mixin --media($name, $argsFeatures...) {
   $features: null;
 
   $index: 1;
@@ -25,5 +26,11 @@
   }
 
   @custom-media --#{$name} #{$features};
+}
+
+/* --media() ALIAS */
+
+@mixin --m($args...) {
+  @include --media($args);
 }
 
