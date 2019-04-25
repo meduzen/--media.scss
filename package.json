@@ -1,6 +1,6 @@
 {
   "name": "double-dash.scss",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A set of SCSS mixins and variables to organize custom media queries.",
   "main": "src/dash-dash-media.scss",
   "scripts": {
