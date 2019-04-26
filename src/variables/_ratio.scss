@@ -1,0 +1,17 @@
+/* VIEWPORT ASPECT RATIO
+ *
+ * Available custom media queries:
+ *
+ *    --from-16-9, --is-16-9, --to-16-9
+ *
+ *    --landscape, --square, --portrait
+ */
+$ratio: (
+  '16-9': '16/9', // 1.7777, TV
+);
+
+@include --ratio($ratio, 'from-', 'is-', 'to-');
+
+@include --ratio-is('square', '1/1');
+@include --ratio-from('landscape', '10001/10000');
+@include --ratio-to('portrait', '9999/10000');

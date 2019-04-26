@@ -1,0 +1,45 @@
+/* VIEWPORT RATIO IN FRACTION
+ *
+ * Turns a SASS list into resolution custom media queries.
+ *
+ * Parameters:
+ *  $ratios: a SASS list with ratios names and their values in fractions
+ *  $from-prefix (`ratio-from-`): the _from_ prefix when resolutions >= density
+ *  $exact-prefix (`ratio-`): the prefix when resolutions == density
+ *  $to-prefix (`ratio-to-`): the _to_ prefix when resolutions < density
+ *
+ * Example usage:
+ *
+ * $ratios: ('16-9': 16/9, '4-3': 4/3);
+ * @include --ratio($ratios);
+ *
+ * Available custom media queries:
+ *
+ *    --ratio-from-16-9, --ratio-from-4-3
+ *    --ratio-16-9, --ratio-4-3
+ *    --ratio-to-16-9, --ratio-to-4-3
+ *
+ * Note: `aspect-ratio` is prefered over `orientation` because…
+ *   1. A square viewport (ratio 1/1) is considered as `portrait` orientation;
+ *   2. `orientation` is limited to two values (`portrait` and `landscape`).
+ */
+
+@mixin --ratio($ratios, $from-prefix: 'ratio-from-', $exact-prefix: 'ratio-', $to-prefix: 'ratio-to-') {
+  @each $name, $ratio in $ratios {
+    @include --ratio-from($name, $ratio, $from-prefix);
+    @include --ratio-is($name, $ratio, $exact-prefix);
+    @include --ratio-to($name, $ratio, $to-prefix);
+  }
+}
+
+@mixin --ratio-from($name, $ratio, $prefix: null) {
+  @include --media(#{$prefix}#{$name}, 'aspect-ratio >=' #{$ratio});
+}
+
+@mixin --ratio-is($name, $ratio, $prefix: null) {
+  @include --media(#{$prefix}#{$name}, unquote('aspect-ratio:') #{$ratio});
+}
+
+@mixin --ratio-to($name, $ratio, $prefix: null) {
+  @include --media(#{$prefix}#{$name}, 'aspect-ratio <=' #{$ratio});
+}
