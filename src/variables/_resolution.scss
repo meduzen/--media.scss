@@ -4,9 +4,9 @@ $dppx: (
   'switch': 2.46875, // 237ppi, 1280px * 720px, 6.2 inches
 );
 
-// --dpi-from-1x, --dpi-from-2x,--dpi-from-switch
-// --dpi-1x, --dpi-2x, --dpi-switch
-// --dpi-to-1x, --dpi-to-2x, --dpi-to-switch
+// --resolution-from-1x, --resolution-from-2x,--resolution-from-switch
+// --resolution-1x, --resolution-2x, --resolution-switch
+// --resolution-to-1x, --resolution-to-2x, --resolution-to-switch
 @include --resolution($dppx);
 
 // --hidpi

@@ -4,9 +4,9 @@
  *
  * Parameters:
  *  $densities: a SASS list with resolutions names and their values in DPPX
- *  $from-prefix (`dpi-from-`): the _from_ prefix when resolutions >= density
- *  $exact-prefix (`dpi-`): the prefix when resolutions == density
- *  $to-prefix (`dpi-to-`): the _to_ prefix when resolutions < density
+ *  $from-prefix (`resolution-from-`): the _from_ prefix when resolutions >= density
+ *  $exact-prefix (`resolution-`): the prefix when resolutions == density
+ *  $to-prefix (`resolution-to-`): the _to_ prefix when resolutions < density
  *
  * Example usage:
  *
@@ -15,15 +15,15 @@
  *
  * Available custom media queries:
  *
- *    --dpi-from-1x, --dpi-from-2x,--dpi-from-switch
- *    --dpi-1x, --dpi-2x, --dpi-switch
- *    --dpi-to-1x, --dpi-to-2x, --dpi-to-switch
+ *    --resolution-from-1x, --resolution-from-2x,--resolution-from-switch
+ *    --resolution-1x, --resolution-2x, --resolution-switch
+ *    --resolution-to-1x, --resolution-to-2x, --resolution-to-switch
  *
  * Note: IE doesn’t support _dppx_, that’s why _dpi_ is used, too:
  * https://developer.mozilla.org/en-US/docs/Web/CSS/resolution
  */
 
-@mixin --resolution($densities, $from-prefix: 'dpi-from-', $exact-prefix: 'dpi-', $to-prefix: 'dpi-to-') {
+@mixin --resolution($densities, $from-prefix: 'resolution-from-', $exact-prefix: 'resolution-', $to-prefix: 'resolution-to-') {
   @each $name, $density in $densities {
     @include --resolution-from($name, $density, $from-prefix);
     @include --resolution-is($name, $density, $exact-prefix);
