@@ -8,8 +8,14 @@
 @custom-media --rec2020 (color-gamut: rec2020);
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/inverted-colors
+
+//inverted-colors: inverted
 @custom-media --inverted-colors (inverted-colors: inverted);
+@custom-media --colors-inverted (inverted-colors: inverted);
+
+//inverted-colors: none
 @custom-media --no-inverted-colors (inverted-colors: none);
+@custom-media --colors-not-inverted (inverted-colors: none);
 
 // https://drafts.csswg.org/mediaqueries-5/#prefers-contrast
 
