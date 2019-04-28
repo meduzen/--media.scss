@@ -8,7 +8,7 @@ _Having a working knowledge of [CSS custom properties](https://vinceumo.github.i
 
 ## Contents
 
-- [What is _Double Dash_?](#what-is-double-dash)
+- [First look](#first-look)
 - [Installation](#installation)
 - [Ready-to-use custom media queries](#ready-to-use-custom-media-queries)
   - [Color scheme (`prefers-color-scheme`)](#colors-scheme-prefers-color-scheme)
@@ -17,15 +17,60 @@ _Having a working knowledge of [CSS custom properties](https://vinceumo.github.i
   - [Ratios (`aspect-ratio`](#ratios-aspect-ratio)
 - [Introduction to custom media queries](#custom-media-queries)
 
+## First look
+
+*Double Dash* makes [custom media queries](#custom-media-queries) declaration a breeze. It even comes with a set of predefined ones.
+
+```scss
+// Define component breakpoints in a SCSS list.
+$nav-breakpoints: (
+  'nav-collapsed': 45em,
+  'nav-expanded': 90em,
+);
+
+// Use Double Dash mixin to generate the related custom media queries.
+@include --width($nav-breakpoints);
+```
+This unique line calling the `--width` mixin generates all the possible width-based (`min-width`, `max-width`) custom media queries:
+```scss
+--nav-collapsed // (min-width: 45em)
+--nav-expanded // (min-width: 90em)
+--to-nav-collapsed // (max-width: 44.999em)
+--to-nav-expanded // (max-width: 89.999em)
+--nav-collapsed-to-nav-expanded // (min-width: 45em) and (max-width: 89.999em)
+```
+
+That’s what *Double Dash* enables: **fast custom media queries declaration**. And even _no declaration needed_ for some of them that are already declared for you, like:
+- `--dark` to target users with dark UI preference;
+- `--hidpi` to target high pixel density screens;
+- and [many more](#ready-to-use-custom-media-queries).
+
+Once declared using *Double Dash*, custom media queries are usable in the standard `@media` syntax:
+
+```scss
+@media (--nav-collapsed) {
+  .nav { transform: translateX(80%); }
+}
+
+@media (--nav-expanded) and (--dark) and (--hidpi) {
+  .nav { background-image: url('bg-dark_2x.png'); }
+}
+```
+
+### Mini-FAQ
+
+Q: Is it really shorter and more readable and lighter and… than [whatever]?
+A: [Yes](#advantages). 😎 If you don’t agree, please [share your knowledge](https://github.com/meduzen/--media.scss/issues/new) 🙏.
+
 ## What is _Double Dash_?
 
 _Double Dash_ is a set of custom media queries (learn first [what they are](#custom-media-queries)) and SCSS mixins speeding up their declaration. It brings 3 things:
 
-1. a mixin to fastly declare any custom media query;
-2. specific mixins for *ranged* media queries (`min-width`, `max-width`…);
-3. a set of custom media queries named in an immediately understandable way: absolutely all available and future media queries from the specs have been named (some even have aliases), apart from the deprecated ones (like `device-width`).
+1. a set of custom media queries named in an immediately understandable way: absolutely all available and future media queries from the specs have been named (some even have aliases), apart from the deprecated ones (like `device-width`);
+2. a set of mixins for *ranged* media queries (`min-width`, `max-width`…);
+3. a global mixin to fastly declare any custom media query.
 
-*Double Dash* is available in a modulable fashion: you can import everything or only the files you need.
+*Double Dash* is available in a modulable fashion: you can import everything or only the files you need. All the mixins starts by a double dash (`--`) to minimize the chance of naming conflict with other SCSS mixins.
 
 ## Installation
 
@@ -81,6 +126,10 @@ Example:
 **`--square`**: the viewport width and height are equal.
 
 **`--portrait`**: the viewport width is smaller than is height.
+
+### Others
+
+*Not documented yet. Feel free to have a messy look at the [messy sources](https://github.com/meduzen/--media.scss/tree/master/src/variables).*
 
 ## Custom media queries
 
@@ -194,4 +243,5 @@ Benefits right now over SCSS variables and mixins:
 Benefits once standardized and widespread:
 - final CSS file will be lighter in the browser.
 
+Next step: first look at [Double Dash](#first-look).
 
