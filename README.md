@@ -8,6 +8,11 @@ _Double Dash_ + _PostCSS_ = tomorrow’s custom media queries workflow, right no
 
 - [What is _Double Dash_?](#what-is-double-dash)
 - [Installation](#installation)
+- [Ready-to-use custom media queries](#ready-to-use-custom-media-queries)
+  - [Color scheme (`prefers-color-scheme`)](#colors-scheme-prefers-color-scheme)
+  - [Display(`display-mode`)](#display-display-mode)
+  - [Motion (`prefers-reduced-motion`](#motion-prefers-reduced-motion)
+  - [Ratios (`aspect-ratio`](#ratios-aspect-ratio)
 - [Introduction to custom media queries](#custom-media-queries)
 
 ## What is _Double Dash_?
@@ -24,6 +29,56 @@ _Double Dash_ is a set of custom media queries (learn first [what they are](#cus
 
 - `npm install double-dash.scss` pulls the package into your project.
 - `@import '~double-dash.scss';` near the beginning of the main SCSS file makes its features available.
+
+## Ready-to-use custom media queries
+
+Importing *Double_Dash* makes available these custom media queries in `@media` rules, already declared.
+
+### Colors scheme ([prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme))
+
+**`--dark`**: the user prefers dark UI.
+
+**`--light`**: the user prefers a light UI.
+
+**`--any-theme`**: no colors preference.
+
+### Display ([display-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode))
+
+These custom media queries matchs the [Web Manifest `display`]([https://developer.mozilla.org/en-US/docs/Web/Manifest#display](https://developer.mozilla.org/en-US/docs/Web/Manifest#display)) property.
+
+**`--fullscreen`**: the website covers the screen, the browser has no _chrome_ (= no user interface).
+
+**`--standalone`**: the website is displayed like if it is an app.
+
+**`--minimal-ui`**: same as `standalone`, with some browser UI elements.
+
+**`--browser`**: the website is open in a browser tab or window.
+
+### Motion ([prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion))
+
+**`--reduced-motion`**: the user wants less animation.
+
+**`--no-motion-preference`**: the user doesn’t want less animation.
+
+Example:
+```scss
+*,
+*::before,
+*::after {
+  @media (--reduced-motion) {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+```
+
+### Ratios ([aspect-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio))
+
+**`--landscape`**: the viewport width is greater than its height.
+
+**`--square`**: the viewport width and height are equal.
+
+**`--portrait`**: the viewport width is smaller than is height.
 
 ## Custom media queries
 
