@@ -4,9 +4,28 @@
 
 _Double Dash_ + _PostCSS_ = tomorrow’s custom media queries workflow, right now.
 
-## Custom media queries
+## Contents
 
-_People already familiar with custom media queries can skip this part._
+- [What is _Double Dash_?](#what-is-double-dash)
+- [Installation](#installation)
+- [Introduction to custom media queries](#custom-media-queries)
+
+## What is _Double Dash_?
+
+_Double Dash_ is a set of custom media queries (learn first [what they are](#custom-media-queries)) and SCSS mixins speeding up their declaration. It brings 3 things:
+
+1. a mixin to fastly declare any custom media query;
+2. specific mixins for *ranged* media queries (`min-width`, `max-width`…);
+3. a set of custom media queries named in an immediately understandable way: absolutely all available and future media queries from the specs have been named (some even have aliases), apart from the deprecated ones (like `device-width`).
+
+*Double Dash* is available in a modulable fashion: you can import everything or only the files you need.
+
+## Installation
+
+- `npm install double-dash.scss` pulls the package into your project.
+- `@import '~double-dash.scss';` near the beginning of the main SCSS file makes its features available.
+
+## Custom media queries
 
 Among other new features, the no-yet-standardized CSS Media Queries specs (level 4 and 5) comes with custom media queries ([PostCSS plugin](https://github.com/postcss/postcss-custom-media), [spec](https://drafts.csswg.org/mediaqueries-5/#custom-mq)). There’s zero browser support for them, but they’re usable right now thanks to [PostCSS Preset Env](https://github.com/csstools/postcss-preset-env), which enables them, among other cool things.
 
