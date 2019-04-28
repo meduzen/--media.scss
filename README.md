@@ -4,6 +4,8 @@
 
 _Double Dash_ + _PostCSS_ = tomorrow’s custom media queries workflow, right now.
 
+_Having a working knowledge of [CSS custom properties](https://vinceumo.github.io/devNotes/css/2019/02/20/css-customs-properties.html) before using Double Dash is probably a wise recommandation._
+
 ## Contents
 
 - [What is _Double Dash_?](#what-is-double-dash)
@@ -82,7 +84,7 @@ Example:
 
 ## Custom media queries
 
-Among other new features, the no-yet-standardized CSS Media Queries specs (level 4 and 5) comes with custom media queries ([PostCSS plugin](https://github.com/postcss/postcss-custom-media), [spec](https://drafts.csswg.org/mediaqueries-5/#custom-mq)). There’s zero browser support for them, but they’re usable right now thanks to [PostCSS Preset Env](https://github.com/csstools/postcss-preset-env), which enables them, among other cool things.
+Among other new features, the not-yet-standardized CSS Media Queries specs (level 4 and 5) comes with custom media queries ([PostCSS plugin](https://github.com/postcss/postcss-custom-media), [spec](https://drafts.csswg.org/mediaqueries-5/#custom-mq)). There’s zero browser support for them, but they’re usable right now thanks to [PostCSS Preset Env](https://github.com/csstools/postcss-preset-env), which enables them, among other cool things.
 
 Like custom properties, the purpose of custom media queries is to avoid repetition and ensure consistency.
 
@@ -135,17 +137,18 @@ $high-res: 1.3;
 
 Declaring a custom media query must be done outside of any selector ruleset, using the `@custom-media` _at_ rule.
 
-This verbose syntax (compared to the one of SCSS variables) will be shorter with Double Dash ✌️.
-
 ```css
 /*  at-rule              custom property value (coma separated features list)
-      ↓                                        ↓                           */
-@custom-media --high-res (min-resolution: 1.3dppx), (min-resolution: 124.8dpi); /*
+      ↓                   ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓                           */
+@custom-media --high-res (min-resolution: 1.3dppx), (min-resolution: 124.8dpi);
+/*                 ↑
                    ↑
          custom property name                                              */
 ```
 
-The name of the declared custom media query can now be used in a `@media` rule: 
+*(This verbose syntax will be shorter with Double Dash ✌️.)*
+
+The custom media query can now be used in `@media` rules: 
 
 ```css
 // layout.scss
@@ -176,10 +179,13 @@ Another example:
 }
 ```
 
+#### Advantages
+
 Benefits right now over SCSS variables and mixins:
 - (on the way to be) standardized, so available outside of any SCSS context (but PostCSS is needed);
 - shorter to write than SCSS mixins;
 - no naming conflict with SCSS variables;
+- fast declaration thanks to *Double Dash*;
 - can be easily combined (and nested for people using SCSS):
 ```css
 @media (--dark) and (--high-res) { … }
@@ -188,5 +194,4 @@ Benefits right now over SCSS variables and mixins:
 Benefits once standardized and widespread:
 - final CSS file will be lighter in the browser.
 
-Now that everyone loves custom media queries, let’s finally meet _Double Dash_.
 
