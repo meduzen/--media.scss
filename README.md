@@ -60,11 +60,12 @@ Once declared using *Double Dash*, custom media queries are usable in the standa
 ### Mini-FAQ
 
 Q: Is it really shorter and more readable and lighter and… than [whatever]?
+
 A: [Yes](#advantages). 😎 If you don’t agree, please [share your knowledge](https://github.com/meduzen/--media.scss/issues/new) 🙏.
 
 ## What is _Double Dash_?
 
-_Double Dash_ is a set of custom media queries (learn first [what they are](#custom-media-queries)) and SCSS mixins speeding up their declaration. It brings 3 things:
+_Double Dash_ is a set of custom media queries and SCSS mixins to speed up their declarations. It brings 3 things:
 
 1. a set of custom media queries named in an immediately understandable way: absolutely all available and future media queries from the specs have been named (some even have aliases), apart from the deprecated ones (like `device-width`);
 2. a set of mixins for *ranged* media queries (`min-width`, `max-width`…);
@@ -79,7 +80,7 @@ _Double Dash_ is a set of custom media queries (learn first [what they are](#cus
 
 ## Ready-to-use custom media queries
 
-Importing *Double_Dash* makes available these custom media queries in `@media` rules, already declared.
+Here are all the custom media queries usable in `@media` rules out of the box.
 
 ### Colors scheme ([prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme))
 
@@ -91,7 +92,7 @@ Importing *Double_Dash* makes available these custom media queries in `@media` r
 
 ### Display ([display-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode))
 
-These custom media queries matchs the [Web Manifest `display`]([https://developer.mozilla.org/en-US/docs/Web/Manifest#display](https://developer.mozilla.org/en-US/docs/Web/Manifest#display)) property.
+These custom media queries matches the [Web Manifest `display`](https://developer.mozilla.org/en-US/docs/Web/Manifest#display) property.
 
 **`--fullscreen`**: the website covers the screen, the browser has no _chrome_ (= no user interface).
 
