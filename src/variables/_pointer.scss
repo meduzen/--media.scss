@@ -1,0 +1,25 @@
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer
+@custom-media --pointer-none (pointer: none);
+@custom-media --pointer-coarse (pointer: coarse);
+@custom-media --pointer-fine (pointer: fine);
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/any-pointer
+
+// any-pointer: none
+@custom-media --any-pointer-none (any-pointer: none);
+
+// any-pointer: coarse
+@custom-media --a-coarse-pointer (any-pointer: coarse);
+@custom-media --any-pointer-coarse (any-pointer: coarse);
+
+// any-pointer: fine
+@custom-media --a-fine-pointer (any-pointer: fine);
+@custom-media --any-pointer-fine (any-pointer: fine);
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover
+@custom-media --hover-none (hover: none);
+@custom-media --hover (hover: hover);
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/any-hover
+@custom-media --any-hover-none (any-hover: none);
+@custom-media --any-hover (any-hover: hover);
