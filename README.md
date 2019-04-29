@@ -16,6 +16,7 @@ _Having a working knowledge of [CSS custom properties](https://vinceumo.github.i
   - [Motion (`prefers-reduced-motion`](#motion-prefers-reduced-motion)
   - [Ratios (`aspect-ratio`](#ratios-aspect-ratio)
 - [Introduction to custom media queries](#custom-media-queries)
+- [Media queries ranges](#media-queries-ranges)
 
 ## First look
 
@@ -246,3 +247,32 @@ Benefits once standardized and widespread:
 
 Next step: first look at [Double Dash](#first-look).
 
+## Also good to know
+
+Aside from custom media queries, _Double Dash_ mixins already use some other media queries 4-5 fanciness. This way, when massive browser adoption will be a thing 🤞, the generated code will be lighter than now.
+
+Among them (currently it’s the only one 🤭) are [media queries ranges](https://github.com/postcss/postcss-media-minmax) ([spec](https://www.w3.org/TR/mediaqueries-4/#mq-range-context)), allowing a concise syntax for _ranged_ media features (`width`, `height`, `resolution`, `aspect-ratio`, `color`).
+
+### Media queries ranges
+
+```css
+// CSS 3
+@media (min-width: 50em) {
+  body { font-size: 1.8rem; }
+}
+
+// CSS 4
+@media (width <= 50em) {
+  body { font-size: 1.8rem; }
+}
+
+// CSS 3
+@media screen and (min-width: 20em) and (max-width: 50em) {
+  .element { display: flex; }
+}
+
+// CSS 4
+@media screen and (20em <= width < 50em) {
+  .element { display: flex; }
+}
+```
