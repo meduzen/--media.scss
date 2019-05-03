@@ -115,8 +115,8 @@ Example:
 *::before,
 *::after {
   @media (--reduced-motion) {
-    transition: none !important;
-    animation: none !important;
+    transition: 0.001s !important;
+    animation: 0.001s !important;
   }
 }
 ```
