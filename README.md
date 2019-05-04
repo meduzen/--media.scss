@@ -2,9 +2,25 @@
 
 # Double Dash Media Queries
 
-_Double Dash_ + _PostCSS_ = tomorrow’s custom media queries workflow, right now.
+_Double Dash_ + _PostCSS_ = **the next decade media queries workflow, right now**.
 
-_Having a working knowledge of [CSS custom properties](https://vinceumo.github.io/devNotes/css/2019/02/20/css-customs-properties.html) before using Double Dash is probably a wise recommandation._
+Until now:
+```css
+@media (min-width: 320px) and (max-width: 800px) and (min-height: 500px) {
+  .nav { position: sticky; }
+}
+```
+
+Starting now:
+```css
+@media (--sticky-nav) {
+  .nav { position: sticky; }
+}
+```
+
+This short and explicit syntax is already possible using PostCSS.
+
+Double Dash is the library helping to define the value of `--sticky-nav`, making [custom media queries](#custom-media-queries) declaration a breeze. It even comes with a set of predefined ones.
 
 ## Contents
 
@@ -20,7 +36,7 @@ _Having a working knowledge of [CSS custom properties](https://vinceumo.github.i
 
 ## First look
 
-*Double Dash* makes [custom media queries](#custom-media-queries) declaration a breeze. It even comes with a set of predefined ones.
+_Having a working knowledge of [CSS custom properties](https://vinceumo.github.io/devNotes/css/2019/02/20/css-customs-properties.html) before using Double Dash is probably a wise recommandation._
 
 ```scss
 // Define component breakpoints in a SCSS list.
@@ -66,18 +82,18 @@ A: [Yes](#advantages). 😎 If you don’t agree, please [share your knowledge](
 
 ## What is _Double Dash_?
 
-_Double Dash_ is a set of custom media queries and SCSS mixins to speed up their declarations. It brings 3 things:
+_Double Dash_ is a set of custom media queries and SCSS mixins to speed up their declarations. It includes:
 
-1. a set of custom media queries named in an immediately understandable way: absolutely all available and future media queries from the specs have been named (some even have aliases), apart from the deprecated ones (like `device-width`);
-2. a set of mixins for *ranged* media queries (`min-width`, `max-width`…);
-3. a global mixin to fastly declare any custom media query.
+- a set of custom media queries named in an immediately understandable way: absolutely all available and future media queries from the specs have been named (some even have aliases);
+- a set of mixins for *ranged* media queries (`min-width`, `max-width`…);
+- a global mixin to fastly declare any custom media query.
 
-*Double Dash* is available in a modulable fashion: you can import everything or only the files you need. All the mixins starts by a double dash (`--`) to minimize the chance of naming conflict with other SCSS mixins.
+*Double Dash* is available in a modulable fashion: you can import everything or only the files you need. All the mixins starts by a double dash (`--`) to avoid naming conflict with your other existing mixins.
 
 ## Installation
 
 - `npm install double-dash.scss` pulls the package into your project.
-- `@import '~double-dash.scss';` near the beginning of the main SCSS file makes its features available.
+- `@import '~double-dash.scss';` near the beginning of the main SCSS file enables Double Dash features.
 
 ## Ready-to-use custom media queries
 
@@ -115,8 +131,6 @@ Example:
 *::before,
 *::after {
   @media (--reduced-motion) {
-    transition: 0.001s !important;
-    animation: 0.001s !important;
   }
 }
 ```
@@ -133,29 +147,30 @@ Example:
 
 *Not documented yet. Feel free to have a messy look at the [messy sources](https://github.com/meduzen/--media.scss/tree/master/src/variables).*
 
+
+
+
 ## Custom media queries
 
-Among other new features, the not-yet-standardized CSS Media Queries specs (level 4 and 5) comes with custom media queries ([PostCSS plugin](https://github.com/postcss/postcss-custom-media), [spec](https://drafts.csswg.org/mediaqueries-5/#custom-mq)). There’s zero browser support for them, but they’re usable right now thanks to [PostCSS Preset Env](https://github.com/csstools/postcss-preset-env), which enables them, among other cool things.
+The not-yet-standardized CSS Media Queries specs level 4 and 5 comes with custom media queries ([PostCSS plugin](https://github.com/postcss/postcss-custom-media), [spec](https://drafts.csswg.org/mediaqueries-5/#custom-mq)). There’s zero browser support for them, but they’re usable right now thanks to [PostCSS Preset Env](https://github.com/csstools/postcss-preset-env).
 
-Like custom properties, the purpose of custom media queries is to avoid repetition and ensure consistency.
-
-Let’s compare how to write styles using CSS 3, then SCSS, then custom media queries.
+Let’s compare how to write media queries using CSS 3, then SCSS, then custom media queries.
 
 ### CSS 3
 
 CSS 3 doesn’t prevent repetitions of verbose `@media` statements:
 ```css
-// layout.css
+/* layout.css */
 @media (min-resolution: 124.8dpi), (min-resolution: 1.3dppx){
   .bg-pattern { background-image: url('bg-pattern_2x.png') }
 }
 
-// customer-testimony.css
+/* customer-testimony.css */
 @media (min-resolution: 124.8dpi), (min-resolution: 1.3dppx){
   .quotes { font-weight: 100; }
 }
 
-// spritesheets.css
+/* spritesheets.css */
 @media (min-resolution: 124.8dpi), (min-resolution: 1.3dppx){
   .sky-box { background-image: url('sprites/skies_2x.jpg') }
 }
@@ -189,12 +204,8 @@ $high-res: 1.3;
 Declaring a custom media query must be done outside of any selector ruleset, using the `@custom-media` _at_ rule.
 
 ```css
-/*  at-rule              custom property value (coma separated features list)
-      ↓                   ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓                           */
+/* @custom-media <name> <value> */
 @custom-media --high-res (min-resolution: 1.3dppx), (min-resolution: 124.8dpi);
-/*                 ↑
-                   ↑
-         custom property name                                              */
 ```
 
 *(This verbose syntax will be shorter with Double Dash ✌️.)*
@@ -202,23 +213,23 @@ Declaring a custom media query must be done outside of any selector ruleset, usi
 The custom media query can now be used in `@media` rules: 
 
 ```css
-// layout.scss
+/* layout.css */
 @media (--high-res) {
   .bg-pattern { background-image: url('bg-pattern_2x.png') }
 }
 
-// customer-testimony.scss
+/* customer-testimony.css */
 @media (--high-res) {
   .quotes { font-weight: 100; }
 }
 
-// spritesheets.scss
+/* spritesheets.css */
 @media (--high-res) {
   .sky-box { background-image: url('sprites/skies_2x.jpg') }
 }
 ```
 
-Another example:
+Another example to target preference for dark mode:
 ```css
 @custom-media --dark (prefers-color-scheme: dark);
 
@@ -230,6 +241,17 @@ Another example:
 }
 ```
 
+A last one combining custom media queries:
+```css
+@custom-media --watch-max-w (max-width: 270px);
+@custom-media --watch-max-h (max-height: 270px);
+@custom-media --watch (--watch-max-w) and (--watch-max-h);
+
+@media (--watch) {
+  padding: env(--micro-view-padding);
+}
+```
+
 #### Advantages
 
 Benefits right now over SCSS variables and mixins:
@@ -237,41 +259,37 @@ Benefits right now over SCSS variables and mixins:
 - shorter to write than SCSS mixins;
 - no naming conflict with SCSS variables;
 - fast declaration thanks to *Double Dash*;
-- can be easily combined (and nested for people using SCSS):
-```css
-@media (--dark) and (--high-res) { … }
-```
+- can be easily combined.
 
-Benefits once standardized and widespread:
-- final CSS file will be lighter in the browser.
+Benefits once standardized and widespread: final CSS file will be lighter in the browser.
 
 Next step: first look at [Double Dash](#first-look).
 
 ## Also good to know
 
-Aside from custom media queries, _Double Dash_ mixins already use some other media queries 4-5 fanciness. This way, when massive browser adoption will be a thing 🤞, the generated code will be lighter than now.
+Aside from custom media queries, _Double Dash_ mixins already use some other level 4-5 media queries fanciness. This way, when massive browser adoption will be a thing 🤞, the generated code will be even lighter.
 
 Among them (currently it’s the only one 🤭) are [media queries ranges](https://github.com/postcss/postcss-media-minmax) ([spec](https://www.w3.org/TR/mediaqueries-4/#mq-range-context)), allowing a concise syntax for _ranged_ media features (`width`, `height`, `resolution`, `aspect-ratio`, `color`).
 
 ### Media queries ranges
 
 ```css
-// CSS 3
+/* CSS 3 */
 @media (min-width: 50em) {
   body { font-size: 1.8rem; }
 }
 
-// CSS 4
+/* CSS 4 */
 @media (width <= 50em) {
   body { font-size: 1.8rem; }
 }
 
-// CSS 3
+/* CSS 3 */
 @media screen and (min-width: 20em) and (max-width: 50em) {
   .element { display: flex; }
 }
 
-// CSS 4
+/* CSS 4 */
 @media screen and (20em <= width < 50em) {
   .element { display: flex; }
 }
