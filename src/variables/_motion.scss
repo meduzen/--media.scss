@@ -4,10 +4,12 @@
 @custom-media --reduced-motion (prefers-reduced-motion: reduce);
 @custom-media --less-motion (prefers-reduced-motion: reduce);
 @custom-media --no-motion (prefers-reduced-motion: reduce);
+@custom-media --stop (prefers-reduced-motion: reduce);
 
 // prefers-reduced-motion: no-preference
 @custom-media --no-motion-preference (prefers-reduced-motion: no-preference);
 @custom-media --motion (prefers-reduced-motion: no-preference);
 @custom-media --full-motion (prefers-reduced-motion: no-preference);
+@custom-media --play (prefers-reduced-motion: no-preference);
 @custom-media --animate-all-the-things (prefers-reduced-motion: no-preference);
 @custom-media --party-parrot (prefers-reduced-motion: no-preference);
