@@ -10,7 +10,7 @@ They are part or the not-yet-standardized CSS Media Queries specs level 4 and 5.
 - [Use](#use)
 - [Queries combinations](#queries-combinations)
 - [Comparison chart](#comparison-chart)
-- [What’s Next](#what’s-next)
+- [What’s Next](#whats-next)
 - [Example: dark mode](#example-dark-mode)
 - [Example: complex query](#example-complex-query)
 
