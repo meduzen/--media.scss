@@ -4,39 +4,88 @@
 
 _Double Dash_ + _PostCSS_ = **the next decade media queries workflow, right now**.
 
-Until now:
-```css
-@media (min-width: 320px) and (max-width: 800px) and (min-height: 500px) {
-  .nav { position: sticky; }
-}
-```
-
-Starting now:
-```css
-@media (--sticky-nav) {
-  .nav { position: sticky; }
-}
-```
-
-This short and explicit syntax is already possible using PostCSS.
-
-Double Dash is the library helping to define the value of `--sticky-nav`, making [custom media queries](#custom-media-queries) declaration a breeze. It even comes with a set of predefined ones.
+Double Dash is a SCSS library helping to declare [custom media queries](doc/custom-media-queries.md). It also comes with a set of predefined ones.
 
 ## Contents
 
-- [First look](#first-look)
 - [Installation](#installation)
-- [Ready-to-use custom media queries](#ready-to-use-custom-media-queries)
+- [Predefined custom media queries](#predefined-custom-media-queries)
   - [Color scheme (`prefers-color-scheme`)](#colors-scheme-prefers-color-scheme)
   - [Display(`display-mode`)](#display-display-mode)
   - [Motion (`prefers-reduced-motion`](#motion-prefers-reduced-motion)
   - [Ratios (`aspect-ratio`](#ratios-aspect-ratio)
-- [Introduction to custom media queries](#custom-media-queries)
-- [Media queries ranges](#media-queries-ranges)
+- [First look](#first-look)
+
+## Installation
+
+- `npm install double-dash.scss` pulls the package into your project.
+- `@import '~double-dash.scss';` near the beginning of the main SCSS file enables Double Dash features.
+
+Note: awaiting for browsers to embrace Custom Media Queries, some CSS post-processing is needed. [Post CSS Present Env](https://preset-env.cssdb.org/) perfectly fills this gap.
+
+## Predefined custom media queries
+
+These custom media queries provided by Double Dash are all usable in `@media` rules out of the box.
+
+### Colors scheme ([prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme))
+
+**`--dark`**: the user prefers a dark UI.
+
+**`--light`**: the user prefers a light UI.
+
+**`--any-theme`**: no colors preference.
+Aliases: `--any-color-scheme`, `--no-theme-preference`, `--no-color-scheme-preference`
+
+
+### Display ([display-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode))
+
+These custom media queries matches the [Web Manifest `display`](https://developer.mozilla.org/en-US/docs/Web/Manifest#display) property.
+
+**`--fullscreen`**: the website covers the screen, the browser has no _chrome_ (= no user interface).
+
+**`--standalone`**: the website is displayed as if it was an app.
+
+**`--minimal-ui`**: same as `standalone`, with some browser UI elements.
+
+**`--browser`**: the website is open in a browser tab or window.
+
+### Motion ([prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion))
+
+**`--reduced-motion`**: the user wants less or no animation.
+Aliases: `--no-motion`, `--less-motion`, `--stop`.
+
+**`--no-motion-preference`**: the user doesn’t want less animation.
+Aliases: `--motion`, `--full-motion`, `--play`, `--animate-all-the-things`, `party-parrot`.
+
+Example:
+```scss
+*,
+*::before,
+*::after {
+  @media (--reduced-motion) {
+    transition-duration: 0.001s !important;
+    animation-duration: 0.001s !important;
+  }
+}
+```
+
+### Ratios ([aspect-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio))
+
+**`--landscape`**: the viewport width is greater than its height.
+Alias: `--horizontal`.
+
+**`--square`**: the viewport width and height are equal.
+
+**`--portrait`**: the viewport width is smaller than its height.
+Alias: `--vertical`.
+
+### Others
+
+*Not documented yet. Feel free to have a messy look at the [messy sources](https://github.com/meduzen/--media.scss/tree/master/src/variables).*
 
 ## First look
 
-_Having a working knowledge of [CSS custom properties](https://vinceumo.github.io/devNotes/css/2019/02/20/css-customs-properties.html) before using Double Dash is probably a wise recommandation._
+_Having a working knowledge of [custom media queries.md](doc/custom-media-queries) before using Double Dash is probably a wise recommandation._
 
 ```scss
 // Define component breakpoints in a SCSS list.
@@ -60,7 +109,7 @@ This unique line calling the `--width` mixin generates all the possible width-ba
 That’s what *Double Dash* enables: **fast custom media queries declaration**. And even _no declaration needed_ for some of them that are already declared for you, like:
 - `--dark` to target users with dark UI preference;
 - `--hidpi` to target high pixel density screens;
-- and [many more](#ready-to-use-custom-media-queries).
+- and [many more](#predefined-custom-media-queries).
 
 Once declared using *Double Dash*, custom media queries are usable in the standard `@media` syntax:
 
@@ -74,11 +123,9 @@ Once declared using *Double Dash*, custom media queries are usable in the standa
 }
 ```
 
-### Mini-FAQ
+**Q:** Is it really shorter and more readable and lighter and… than [whatever]?
 
-Q: Is it really shorter and more readable and lighter and… than [whatever]?
-
-A: [Yes](#advantages). 😎 If you don’t agree, please [share your knowledge](https://github.com/meduzen/--media.scss/issues/new) 🙏.
+**A:** [Yes](#advantages). 😎 If you don’t agree, please [share your knowledge](https://github.com/meduzen/--media.scss/issues/new) 🙏.
 
 ## What is _Double Dash_?
 
@@ -90,180 +137,51 @@ _Double Dash_ is a set of custom media queries and SCSS mixins to speed up their
 
 *Double Dash* is available in a modulable fashion: you can import everything or only the files you need. All the mixins starts by a double dash (`--`) to avoid naming conflict with your other existing mixins.
 
-## Installation
 
-- `npm install double-dash.scss` pulls the package into your project.
-- `@import '~double-dash.scss';` near the beginning of the main SCSS file enables Double Dash features.
 
-## Ready-to-use custom media queries
 
-Here are all the custom media queries usable in `@media` rules out of the box.
 
-### Colors scheme ([prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme))
 
-**`--dark`**: the user prefers dark UI.
 
-**`--light`**: the user prefers a light UI.
 
-**`--any-theme`**: no colors preference.
 
-### Display ([display-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode))
-
-These custom media queries matches the [Web Manifest `display`](https://developer.mozilla.org/en-US/docs/Web/Manifest#display) property.
-
-**`--fullscreen`**: the website covers the screen, the browser has no _chrome_ (= no user interface).
-
-**`--standalone`**: the website is displayed like if it is an app.
-
-**`--minimal-ui`**: same as `standalone`, with some browser UI elements.
-
-**`--browser`**: the website is open in a browser tab or window.
-
-### Motion ([prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion))
-
-**`--reduced-motion`**: the user wants less animation.
-
-**`--no-motion-preference`**: the user doesn’t want less animation.
-
-Example:
 ```scss
-*,
-*::before,
-*::after {
-  @media (--reduced-motion) {
-  }
-}
 ```
 
-### Ratios ([aspect-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio))
-
-**`--landscape`**: the viewport width is greater than its height.
-
-**`--square`**: the viewport width and height are equal.
-
-**`--portrait`**: the viewport width is smaller than is height.
-
-### Others
-
-*Not documented yet. Feel free to have a messy look at the [messy sources](https://github.com/meduzen/--media.scss/tree/master/src/variables).*
 
 
 
 
-## Custom media queries
 
-The not-yet-standardized CSS Media Queries specs level 4 and 5 comes with custom media queries ([PostCSS plugin](https://github.com/postcss/postcss-custom-media), [spec](https://drafts.csswg.org/mediaqueries-5/#custom-mq)). There’s zero browser support for them, but they’re usable right now thanks to [PostCSS Preset Env](https://github.com/csstools/postcss-preset-env).
 
-Let’s compare how to write media queries using CSS 3, then SCSS, then custom media queries.
 
-### CSS 3
 
-CSS 3 doesn’t prevent repetitions of verbose `@media` statements:
-```css
-/* layout.css */
-@media (min-resolution: 124.8dpi), (min-resolution: 1.3dppx){
-  .bg-pattern { background-image: url('bg-pattern_2x.png') }
-}
-
-/* customer-testimony.css */
-@media (min-resolution: 124.8dpi), (min-resolution: 1.3dppx){
-  .quotes { font-weight: 100; }
-}
-
-/* spritesheets.css */
-@media (min-resolution: 124.8dpi), (min-resolution: 1.3dppx){
-  .sky-box { background-image: url('sprites/skies_2x.jpg') }
-}
 ```
 
-### SCSS
-
-SCSS mixins and variables reduces verbosity and brings better readability:
 ```scss
-// variables/media-queries.scss
-$high-res: 1.3;
 
-// layout.scss
-@include min-resolution($high-res) {
-  .bg-pattern { background-image: url('bg-pattern_2x.png') }
-}
 
-// customer-testimony.scss
-@include min-resolution($high-res) {
-  .quotes { font-weight: 100; }
-}
 
-// spritesheets.scss
-@include min-resolution($high-res) {
-  .sky-box { background-image: url('sprites/skies_2x.jpg') }
-}
 ```
 
-### Custom media queries
 
-Declaring a custom media query must be done outside of any selector ruleset, using the `@custom-media` _at_ rule.
 
-```css
-/* @custom-media <name> <value> */
-@custom-media --high-res (min-resolution: 1.3dppx), (min-resolution: 124.8dpi);
 ```
 
-*(This verbose syntax will be shorter with Double Dash ✌️.)*
 
-The custom media query can now be used in `@media` rules: 
 
-```css
-/* layout.css */
-@media (--high-res) {
-  .bg-pattern { background-image: url('bg-pattern_2x.png') }
-}
 
-/* customer-testimony.css */
-@media (--high-res) {
-  .quotes { font-weight: 100; }
-}
 
-/* spritesheets.css */
-@media (--high-res) {
-  .sky-box { background-image: url('sprites/skies_2x.jpg') }
-}
 ```
 
-Another example to target preference for dark mode:
-```css
-@custom-media --dark (prefers-color-scheme: dark);
 
-@media (--dark) {
-  :root {
-    --primary: white;
-    --background: black;
-  }
-}
 ```
 
-A last one combining custom media queries:
-```css
-@custom-media --watch-max-w (max-width: 270px);
-@custom-media --watch-max-h (max-height: 270px);
-@custom-media --watch (--watch-max-w) and (--watch-max-h);
 
-@media (--watch) {
-  padding: env(--micro-view-padding);
-}
-```
 
-#### Advantages
 
-Benefits right now over SCSS variables and mixins:
-- (on the way to be) standardized, so available outside of any SCSS context (but PostCSS is needed);
-- shorter to write than SCSS mixins;
-- no naming conflict with SCSS variables;
-- fast declaration thanks to *Double Dash*;
-- can be easily combined.
 
-Benefits once standardized and widespread: final CSS file will be lighter in the browser.
 
-Next step: first look at [Double Dash](#first-look).
 
 ## Also good to know
 
