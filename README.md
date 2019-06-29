@@ -126,9 +126,11 @@ Alias: `--vertical`.
 
 ## Partial import
 
+Purpose: avoiding naming conflicts with existing custom media queries and SCSS mixins.
+
 ### Import predefined custom media queries
 
-This examples pulls the `prefers-reduced-motion` custom media queries:
+This examples only pulls the `prefers-reduced-motion` custom media queries:
 
 ```scss
 `@import '~double-dash.scss/src/variables/motion';`
