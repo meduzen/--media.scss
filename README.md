@@ -14,9 +14,10 @@ Double Dash is a SCSS library helping to declare [custom media queries](doc/cust
 - [Installation](#installation)
 - [Predefined custom media queries](#predefined-custom-media-queries)
   - [Color scheme (`prefers-color-scheme`)](#colors-scheme-prefers-color-scheme)
-  - [Display(`display-mode`)](#display-display-mode)
-  - [Motion (`prefers-reduced-motion`](#motion-prefers-reduced-motion)
-  - [Ratios (`aspect-ratio`](#ratios-aspect-ratio)
+  - [Display (`display-mode`)](#display-display-mode)
+  - [Motion (`prefers-reduced-motion`)](#motion-prefers-reduced-motion)
+  - [Ratios (`aspect-ratio`)](#ratios-aspect-ratio)
+- (soon) Mixins for ranged media queries
 - [Partial import](#partial-import)
 - [First look](#first-look)
 

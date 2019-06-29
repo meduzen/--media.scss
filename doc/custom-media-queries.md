@@ -80,7 +80,7 @@ Lighter CSS bundle in the future | ❌ | ❌ | ✅ | ✅
 
 ## What’s next?
 
-- *(Documentation coming soon)* Media query ranges, another cool CSS Media Queries specs level 4 and 5.
+- [Media query ranges](/doc/media-queries-ranges.md), another cool thing from the CSS Media Queries specs level 4 and 5.
 - Supercharge your Custom media queries workflow with [Double Dash](/)!!
 
 ## Example: dark mode
@@ -176,3 +176,5 @@ By splitting and naming the features using `@custom-media`, the `@media` become 
   }
 }
 ```
+
+💡 Media queries ranges can make [this last example even more readable](/doc/media-queries-ranges.md#declaring-a-custom-media-queries-using-ranges).
