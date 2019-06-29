@@ -2,9 +2,12 @@
 
 # Double Dash Media Queries
 
-_Double Dash_ + _PostCSS_ = **the next decade media queries workflow, right now**.
+Double Dash + PostCSS = **the next decade media queries workflow, right now**.
 
-Double Dash is a SCSS library helping to declare [custom media queries](doc/custom-media-queries.md). It also comes with a set of predefined ones.
+Double Dash is a SCSS library helping to declare [custom media queries](doc/custom-media-queries.md). It includes:
+- predefined custom media queries, covering the whole specs;
+- mixins that generate *ranged* media queries (`min-width`, `max-width`…);
+- a generic mixin to declare any custom media query faster.
 
 ## Contents
 
@@ -83,59 +86,15 @@ Alias: `--vertical`.
 
 *Not documented yet. Feel free to have a messy look at the [messy sources](https://github.com/meduzen/--media.scss/tree/master/src/variables).*
 
-## First look
 
-_Having a working knowledge of [custom media queries.md](doc/custom-media-queries) before using Double Dash is probably a wise recommandation._
 
-```scss
-// Define component breakpoints in a SCSS list.
-$nav-breakpoints: (
-  'nav-collapsed': 45em,
-  'nav-expanded': 90em,
-);
 
-// Use Double Dash mixin to generate the related custom media queries.
-@include --width($nav-breakpoints);
-```
-This unique line calling the `--width` mixin generates all the possible width-based (`min-width`, `max-width`) custom media queries:
-```scss
---nav-collapsed // (min-width: 45em)
---nav-expanded // (min-width: 90em)
---to-nav-collapsed // (max-width: 44.999em)
---to-nav-expanded // (max-width: 89.999em)
---nav-collapsed-to-nav-expanded // (min-width: 45em) and (max-width: 89.999em)
-```
 
-That’s what *Double Dash* enables: **fast custom media queries declaration**. And even _no declaration needed_ for some of them that are already declared for you, like:
-- `--dark` to target users with dark UI preference;
-- `--hidpi` to target high pixel density screens;
-- and [many more](#predefined-custom-media-queries).
 
-Once declared using *Double Dash*, custom media queries are usable in the standard `@media` syntax:
 
-```scss
-@media (--nav-collapsed) {
-  .nav { transform: translateX(80%); }
-}
 
-@media (--nav-expanded) and (--dark) and (--hidpi) {
-  .nav { background-image: url('bg-dark_2x.png'); }
-}
-```
 
-**Q:** Is it really shorter and more readable and lighter and… than [whatever]?
 
-**A:** [Yes](#advantages). 😎 If you don’t agree, please [share your knowledge](https://github.com/meduzen/--media.scss/issues/new) 🙏.
-
-## What is _Double Dash_?
-
-_Double Dash_ is a set of custom media queries and SCSS mixins to speed up their declarations. It includes:
-
-- a set of custom media queries named in an immediately understandable way: absolutely all available and future media queries from the specs have been named (some even have aliases);
-- a set of mixins for *ranged* media queries (`min-width`, `max-width`…);
-- a global mixin to fastly declare any custom media query.
-
-*Double Dash* is available in a modulable fashion: you can import everything or only the files you need. All the mixins starts by a double dash (`--`) to avoid naming conflict with your other existing mixins.
 
 
 
@@ -155,7 +114,6 @@ _Double Dash_ is a set of custom media queries and SCSS mixins to speed up their
 
 
 
-
 ```
 
 ```scss
@@ -166,7 +124,6 @@ _Double Dash_ is a set of custom media queries and SCSS mixins to speed up their
 
 
 
-```
 
 
 
@@ -182,33 +139,4 @@ _Double Dash_ is a set of custom media queries and SCSS mixins to speed up their
 
 
 
-
-## Also good to know
-
-Aside from custom media queries, _Double Dash_ mixins already use some other level 4-5 media queries fanciness. This way, when massive browser adoption will be a thing 🤞, the generated code will be even lighter.
-
-Among them (currently it’s the only one 🤭) are [media queries ranges](https://github.com/postcss/postcss-media-minmax) ([spec](https://www.w3.org/TR/mediaqueries-4/#mq-range-context)), allowing a concise syntax for _ranged_ media features (`width`, `height`, `resolution`, `aspect-ratio`, `color`).
-
-### Media queries ranges
-
-```css
-/* CSS 3 */
-@media (min-width: 50em) {
-  body { font-size: 1.8rem; }
-}
-
-/* CSS 4 */
-@media (width <= 50em) {
-  body { font-size: 1.8rem; }
-}
-
-/* CSS 3 */
-@media screen and (min-width: 20em) and (max-width: 50em) {
-  .element { display: flex; }
-}
-
-/* CSS 4 */
-@media screen and (20em <= width < 50em) {
-  .element { display: flex; }
-}
 ```
