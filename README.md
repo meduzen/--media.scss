@@ -17,6 +17,7 @@ Double Dash is a SCSS library helping to declare [custom media queries](doc/cust
   - [Display(`display-mode`)](#display-display-mode)
   - [Motion (`prefers-reduced-motion`](#motion-prefers-reduced-motion)
   - [Ratios (`aspect-ratio`](#ratios-aspect-ratio)
+- [Partial import](#partial-import)
 - [First look](#first-look)
 
 ## Installation
@@ -122,18 +123,33 @@ Alias: `--vertical`.
 
 ```
 
+## Partial import
 
+### Import predefined custom media queries
 
+This examples pulls the `prefers-reduced-motion` custom media queries:
 
-
-
-
-
+```scss
+`@import '~double-dash.scss/src/variables/motion';`
 ```
 
+Available files: `color`, `js`, `light`, `motion`, `pointer`, `ratio`, `refresh`, `resolution`, `ui`.
 
+### Import mixins for ranged media queries
+
+First, import the generic `--media` mixins: the other mixins use it:
+
+```scss
+@import '~double-dash.scss/src/mixins/main';
 ```
 
+Then, pulls the mixins for viewport sizes custom media queries:
+
+```scss
+@import '~double-dash.scss/src/mixins/sizes';
+```
+
+Available files: `ratio`, `resolution`, `sizes`.
 
 
 
