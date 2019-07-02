@@ -32,6 +32,6 @@
 
 /* --media() ALIAS */
 
-@mixin --m($args...) {
-  @include --media($args);
+@mixin --m($name, $args...) {
+  @include --media($name, $args);
 }
