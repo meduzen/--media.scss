@@ -1,0 +1,27 @@
+/*
+ * MEDIA SCREEN MIXIN
+ *
+ * A screen based mixin. Same signature as the `--media` one.
+ *
+ * Example:
+ * @include --screen(wide-as-hell, 'width >= 150em')
+ * generates
+ * @custom-media --wide-as-hell screen and (min-width: 150em)
+ */
+
+@mixin --screen($name, $argsFeatures...) {
+  $features: null;
+
+  $index: 1;
+  @each $feature in $argsFeatures {
+    @if $index > 1 {
+      $features: #{$features ','};
+    }
+    $features: 'only screen and' #{$features unquote('(#{$feature})')};
+
+    $index: $index + 1;
+  }
+
+  @custom-media --#{$name} #{$features};
+  // @debug --#{$name} unquote('#{$features}'); // Uncomment for console debug.
+}

@@ -143,7 +143,7 @@ Available files: `color`, `js`, `light`, `motion`, `pointer`, `ratio`, `refresh`
 First, import the generic `--media` mixins: the other mixins use it:
 
 ```scss
-@import '~double-dash.scss/src/mixins/main';
+@import '~double-dash.scss/src/mixins/base';
 ```
 
 Then, pulls the mixins for viewport sizes custom media queries:

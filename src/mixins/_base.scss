@@ -1,15 +1,16 @@
 /*
  * MEDIA MIXIN
  *
- * A helper used by the other media queries mixins.
+ * A base mixin for the other media queries mixins.
  *
  * Parameters:
  *  $name: name of the CSS custom media query, without its double hyphen prefix
  *  $argsFeatures: media features
  *
- * Example: `@include --media(wide-as-hell, width >= 150em)`
- * and `@include --m(wide-as-hell, width >= 150em)` both generates
- * `@custom-media --wide-as-hell (min-width: 150em)`.
+ * Example:
+ * @include --media(wide-as-hell, 'width >= 150em')
+ * generates
+ * @custom-media --wide-as-hell (min-width: 150em)
  */
 
 @mixin --media($name, $argsFeatures...) {
@@ -26,6 +27,7 @@
   }
 
   @custom-media --#{$name} #{$features};
+  // @debug --#{$name} unquote('#{$features}'); // Uncomment for console debug.
 }
 
 /* --media() ALIAS */
@@ -33,4 +35,3 @@
 @mixin --m($args...) {
   @include --media($args);
 }
-

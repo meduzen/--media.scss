@@ -1,11 +1,14 @@
-// Helper for the next mixins.
-@import 'main';
+// Base mixin used by the others
+@import 'base';
 
-// Specific mixins for viewport aspect-ratio
+// Types mixins
+@import 'types/types';
+
+// Mixins for viewport aspect-ratio
 @import 'ratio';
 
-// Specific mixins for device resolution
+// Mixins for device resolution
 @import 'resolution';
 
-// Specific mixins for viewport width and height
+// Mixins for viewport width and height
 @import 'sizes';
