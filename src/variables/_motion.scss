@@ -1,15 +1,15 @@
 // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
 
-// prefers-reduced-motion: reduce
-@custom-media --reduced-motion (prefers-reduced-motion: reduce);
-@custom-media --less-motion (prefers-reduced-motion: reduce);
-@custom-media --no-motion (prefers-reduced-motion: reduce);
-@custom-media --stop (prefers-reduced-motion: reduce);
+$reduced-motion: 'prefers-reduced-motion: reduce';
+@include --m(reduced-motion, $reduced-motion);
+@include --m(less-motion, $reduced-motion);
+@include --m(no-motion, $reduced-motion);
+@include --m(stop, $reduced-motion);
 
-// prefers-reduced-motion: no-preference
-@custom-media --no-motion-preference (prefers-reduced-motion: no-preference);
-@custom-media --motion (prefers-reduced-motion: no-preference);
-@custom-media --full-motion (prefers-reduced-motion: no-preference);
-@custom-media --play (prefers-reduced-motion: no-preference);
-@custom-media --animate-all-the-things (prefers-reduced-motion: no-preference);
-@custom-media --party-parrot (prefers-reduced-motion: no-preference);
+$no-motion-preference: 'prefers-reduced-motion: no-preference';
+@include --m(no-motion-preference, $no-motion-preference);
+@include --m(motion, $no-motion-preference);
+@include --m(full-motion, $no-motion-preference);
+@include --m(play, $no-motion-preference);
+@include --m(animate-all-the-things, $no-motion-preference);
+@include --m(party-parrot, $no-motion-preference);

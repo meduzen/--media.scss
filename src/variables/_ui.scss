@@ -13,18 +13,21 @@
 @custom-media --light (prefers-color-scheme: light);
 
 // prefers-color-scheme: no-preference
-@custom-media --any-theme (prefers-color-scheme: no-preference);
-@custom-media --any-color-scheme (prefers-color-scheme: no-preference);
-@custom-media --no-theme-preference (prefers-color-scheme: no-preference);
-@custom-media --no-color-scheme-preference (prefers-color-scheme: no-preference);
+$no-theme-preference: 'prefers-color-scheme: no-preference';
+@include --m(any-theme, $no-theme-preference);
+@include --m(any-color-scheme, $no-theme-preference);
+@include --m(no-theme-preference, $no-theme-preference);
+@include --m(no-color-scheme-preference, $no-theme-preference);
 
 // https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-transparency
 
 // prefers-reduced-transparency: reduce
-@custom-media --reduced-transparency (prefers-reduced-transparency: reduce);
-@custom-media --less-transparency (prefers-reduced-transparency: reduce);
+$reduced-transparency: 'prefers-reduced-transparency: reduce';
+@include --m(reduced-transparency, $reduced-transparency);
+@include --m(less-transparency, $reduced-transparency);
 
 // prefers-reduced-transparency: no-preference
-@custom-media --no-transparency-preference (prefers-reduced-transparency: no-preference);
-@custom-media --transparency (prefers-reduced-transparency: no-preference);
-@custom-media --full-transparency (prefers-reduced-transparency: no-preference);
+$no-transparency-preference: 'prefers-reduced-transparency: no-preference';
+@include --m(no-transparency-preference, $no-transparency-preference);
+@include --m(transparency, $no-transparency-preference);
+@include --m(full-transparency, $no-transparency-preference);
