@@ -100,17 +100,17 @@ Alias: `--vertical`.
 Mixins for ranged media queries allow you to quickly generate a lof of maintainable custom media queries.
 
 ```scss
-// Define component breakpoints in a SCSS list.
+// Gather component breakpoints in a SCSS list.
 $nav-breakpoints: (
   'nav-collapsed': 45em,
   'nav-expanded': 90em,
 );
 
-// Use Double Dash mixin to generate the related custom media queries.
+// One mixin to generate them all.
 @include --width($nav-breakpoints);
 ```
 
-This unique call to the `--width` mixin generates all the possible width-based (`min-width`, `max-width`) custom media queries base, including combinations:
+This unique call to the `--width` mixin generates all the width-based custom media queries (`min-width`, `max-width`) , including combinations:
 ```scss
 --nav-collapsed // (min-width: 45em)
 --nav-expanded // (min-width: 90em)
