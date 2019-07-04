@@ -24,7 +24,6 @@ Double Dash is a SCSS library helping to declare [custom media queries](doc/cust
     - (soon) Sizes
     - (soon) Ratio
 - [Partial import](#partial-import)
-- [First look](#first-look)
 
 ## Installation
 
@@ -172,25 +171,6 @@ By doing so, the resulting custom media queries become:
 - `--res-2x`, `--res-from-2x`, `--res-to-2x`,
 - `--res-switch`, `--res-from-switch`, `--res-to-switch`.
 
-
-```scss
-```
-
-
-
-
-
-
-
-
-```
-
-```scss
-
-
-
-```
-
 ## Partial import
 
 The purpose of partial import is to avoid naming conflicts with existing custom media queries and SCSS mixins.
@@ -220,9 +200,3 @@ Then, pulls the mixins for viewport sizes custom media queries:
 ```
 
 Available files: `ratio`, `resolution`, `sizes`.
-
-
-
-
-
-```
