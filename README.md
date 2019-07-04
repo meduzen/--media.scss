@@ -17,7 +17,12 @@ Double Dash is a SCSS library helping to declare [custom media queries](doc/cust
   - [Display (`display-mode`)](#display-display-mode)
   - [Motion (`prefers-reduced-motion`)](#motion-prefers-reduced-motion)
   - [Ratios (`aspect-ratio`)](#ratios-aspect-ratio)
-- (soon) Mixins for ranged media queries
+  - [Others](#others)
+- [Mixins for ranged media queries](#mixins-for-ranged-media-queries)
+    - [First look](#first-look)
+    - [Resolution](#resolution)
+    - (soon) Sizes
+    - (soon) Ratio
 - [Partial import](#partial-import)
 - [First look](#first-look)
 
@@ -30,7 +35,7 @@ Note: awaiting for browsers to embrace Custom Media Queries, some CSS post-proce
 
 ## Predefined custom media queries
 
-These custom media queries provided by Double Dash are all usable in `@media` rules out of the box.
+Double Dash provides a set of custom media queries usable in `@media` rules out of the box.
 
 ### Colors scheme ([prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme))
 
@@ -88,22 +93,84 @@ Alias: `--vertical`.
 
 *Not documented yet. Feel free to have a messy look at the [messy sources](https://github.com/meduzen/--media.scss/tree/master/src/variables).*
 
+## Mixins for ranged media queries
 
 
+### First look
 
+Mixins for ranged media queries allow you to quickly generate a lof of maintainable custom media queries.
 
+```scss
+// Define component breakpoints in a SCSS list.
+$nav-breakpoints: (
+  'nav-collapsed': 45em,
+  'nav-expanded': 90em,
+);
 
+// Use Double Dash mixin to generate the related custom media queries.
+@include --width($nav-breakpoints);
+```
 
+This unique call to the `--width` mixin generates all the possible width-based (`min-width`, `max-width`) custom media queries base, including combinations:
+```scss
+--nav-collapsed // (min-width: 45em)
+--nav-expanded // (min-width: 90em)
+--to-nav-collapsed // (max-width: 44.999em)
+--to-nav-expanded // (max-width: 89.999em)
+--nav-collapsed-to-nav-expanded // (min-width: 45em) and (max-width: 89.999em)
+```
 
+### Resolution
 
+Syntaxes overview:
 
+```scss
+@include --resolution-from(name, pxDensityFactor);
+@include --resolution-to(name, pxDensityFactor);
+@include --resolution-is(name, pxDensityFactor);
+@include --resolution(resolutionsList);
+```
 
+Examples:
 
+```scss
+@include --resolution-from(hidpi, 1.3);
+@include --resolution-to(ldpi, 1.3);
+@include --resolution-is(dppx-switch, 2.46875);
 
+// generates
+@custom-media --hidpi (min-resolution: 1.3dppx), (min-resolution: 124.8dpi);
+@custom-media --ldpi (max-resolution: 1.299dppx), (max-resolution: 124.799dpi);
+@custom-media --dppx-switch (resolution: 2.46875dppx), (resolution: 237dpi);
+```
 
+#### Using the all-in-one mixins
 
+```scss
+$dppx: (
+  '1x': 1, // 1dppx = 96 dpi
+  '2x': 2, // 2dppx = 192 dpi
+  'switch': 2.46875, // 2.46875dppx = 237ppi
+);
 
+@include --resolution($dppx);
+```
 
+Available custom media queries:
+- `--resolution-1x`, `--resolution-from-1x`, `--resolution-to-1x`,
+- `--resolution-2x`, `--resolution-from-2x`, `--resolution-to-2x`,
+- `--resolution-switch`, `--resolution-from-switch`, `--resolution-to-switch`.
+
+When using the all-round `--resolution` mixin, prefixes (`resolution-from-`, `resolution-` and `resolution-to-`) can be replaced with 3 more arguments:
+
+```scss
+@include --resolution($dppx, 'res-from-', 'res-is-', 'res-to-');
+```
+
+By doing so, the resulting custom media queries become:
+- `--res-1x`, `--res-from-1x`, `--res-to-1x`,
+- `--res-2x`, `--res-from-2x`, `--res-to-2x`,
+- `--res-switch`, `--res-from-switch`, `--res-to-switch`.
 
 
 ```scss
@@ -126,7 +193,7 @@ Alias: `--vertical`.
 
 ## Partial import
 
-Purpose: avoiding naming conflicts with existing custom media queries and SCSS mixins.
+The purpose of partial import is to avoid naming conflicts with existing custom media queries and SCSS mixins.
 
 ### Import predefined custom media queries
 
