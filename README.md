@@ -4,7 +4,7 @@
 
 Double Dash + PostCSS = **the next decade media queries workflow, right now**.
 
-Double Dash is a SCSS library helping to declare [custom media queries](doc/custom-media-queries.md). It includes:
+Double Dash is a SCSS library helping to declare [custom media queries](docs/custom-media-queries.md). It includes:
 - predefined custom media queries, covering the whole specs;
 - mixins that generate *ranged* media queries (`min-width`, `max-width`…);
 - a generic mixin to declare any custom media query faster.
@@ -19,10 +19,8 @@ Double Dash is a SCSS library helping to declare [custom media queries](doc/cust
   - [Ratios (`aspect-ratio`)](#ratios-aspect-ratio)
   - [Others](#others)
 - [Mixins for ranged media queries](#mixins-for-ranged-media-queries)
-    - [First look](#first-look)
-    - [Resolution](#resolution)
-    - [Sizes (width, height)](#sizes-width-height)
-    - (soon) Ratio
+    - [Introduction](#introduction)
+    - [Available mixins](#available-mixins)
 - [Partial import](#partial-import)
 
 ## Installation
@@ -94,9 +92,9 @@ Alias: `--vertical`.
 
 ## Mixins for ranged media queries
 
-### First look
+### Introduction
 
-Mixins for ranged media queries allow you to quickly generate a lof of custom media queries in a maintainable way.
+Mixins for ranged media queries generate a lot of custom media queries based on breakpoints lists.
 
 ```scss
 // Gather component breakpoints in a SCSS list.
@@ -106,21 +104,52 @@ $nav-breakpoints: (
 );
 
 // One mixin to generate them all.
-@include --width($nav-breakpoints);
+@include --w($nav-breakpoints);
 ```
 
-This unique call to the `--width` mixin generates all the width-based custom media queries (`min-width`, `max-width`) , including combinations:
+This unique `--w` mixin call generates all these width-based custom media queries:
 ```scss
+// min-width
 --nav-collapsed // (min-width: 45em)
 --nav-expanded // (min-width: 90em)
+
+// max-width
 --to-nav-collapsed // (max-width: 44.999em)
 --to-nav-expanded // (max-width: 89.999em)
+
+// combinations
 --nav-collapsed-to-nav-expanded // (min-width: 45em) and (max-width: 89.999em)
 ```
 
-### Resolution
+They are now all usable in `@media`:
 
-Syntaxes overview:
+```css
+@media(--nav-expanded) {
+  .nav-toggle-btn { display: none; }
+}
+```
+
+### Available mixins
+
+#### Width and height
+
+```scss
+@include --w-from(name, width)
+@include --w-to(name, width)
+@include --w-is(name, width)
+@include --w-from-to(name, smallerWidth, otherName, greaterWidth)
+@include --w(widthsList)
+
+@include --h-from(name, height)
+@include --h-to(name, height)
+@include --h-is(name, height)
+@include --h-from-to(name, smallerHeight, otherName, greaterHeight)
+@include --h(heightsList)
+```
+
+[Width and height mixins documentation](/docs/ranged-sizes-mixins.md).
+
+#### Resolution
 
 ```scss
 @include --resolution-from(name, pxDensityFactor);
@@ -129,119 +158,25 @@ Syntaxes overview:
 @include --resolution(resolutionsList);
 ```
 
-Examples:
+[Resolution mixins documentation](/docs/ranged-resolutions-mixins.md).
+
+#### Ratio
+
+Soon.
+
+
 
 ```scss
-@include --resolution-from(hidpi, 1.3);
-@include --resolution-to(ldpi, 1.3);
-@include --resolution-is(dppx-switch, 2.46875);
-
-// generates
-@custom-media --hidpi (min-resolution: 1.3dppx), (min-resolution: 124.8dpi);
-@custom-media --ldpi (max-resolution: 1.299dppx), (max-resolution: 124.799dpi);
-@custom-media --dppx-switch (resolution: 2.46875dppx), (resolution: 237dpi);
 ```
 
-#### Using the all-in-one mixin
 
 ```scss
-$dppx: (
-  '1x': 1, // 1dppx = 96 dpi
-  '2x': 2, // 2dppx = 192 dpi
-  'switch': 2.46875, // 2.46875dppx = 237ppi
-);
 
-@include --resolution($dppx);
+
 ```
-
-Available custom media queries:
-- `--resolution-1x`, `--resolution-from-1x`, `--resolution-to-1x`,
-- `--resolution-2x`, `--resolution-from-2x`, `--resolution-to-2x`,
-- `--resolution-switch`, `--resolution-from-switch`, `--resolution-to-switch`.
-
-When using the all-round `--resolution` mixin, prefixes (`resolution-from-`, `resolution-` and `resolution-to-`) can be replaced with 3 more arguments:
 
 ```scss
-@include --resolution($dppx, 'res-from-', 'res-is-', 'res-to-');
 ```
-
-By doing so, the resulting custom media queries become:
-- `--res-1x`, `--res-from-1x`, `--res-to-1x`,
-- `--res-2x`, `--res-from-2x`, `--res-to-2x`,
-- `--res-switch`, `--res-from-switch`, `--res-to-switch`.
-
-### Sizes (width, height)
-
-*(Height: soon)*
-
-Syntaxes overview:
-
-```scss
-@include --w-from(name, width);
-@include --w-to(name, width);
-@include --w-is(name, width);
-@include --w-from-to(name, smaller width, other name, greater width);
-@include --w(widthsList);
-```
-
-Examples:
-```scss
-@include --w-from(smallest, 20em);
-@include --w-is(wii-u, 980px);
-@include --w-to(filters-collapsed, 50em);
-@include --w-from-to(smallest, 20em, filters-collapsed, 50em);
-
-// generates
-@custom-media --smallest (min-width: 20em);
-@custom-media --wii-u (width: 980px);
-@custom-media --filters-collapsed (max-width: 49.999em);
-@custom-media --smallest-to-filters-collapsed (min-width: 20em) and (max-width: 49.999em);
-```
-
-#### Using the all-in-one mixin
-
-Let’s imagine a calendar that can be displayed in three modes: compressed, with one week visible or two weeks visible.
-
-```scss
-$breakpoints-cal: (
-  'cal-compressed': 20em,
-  'cal-week': 45em,
-  'cal-2-weeks': 94em,
-);
-
-@include --w($breakpoints-cal);
-```
-
-Available custom media queries:
-
-```scss
---cal-compressed // (min-width: 20em)
---to-cal-compressed // (max-width: 19.999em)
---cal-week // (min-width: 45em)
---to-cal-week // (max-width: 44.999em)
---cal-2-weeks // (min-width: 94em)
---to-cal-2-weeks // (max-width: 93.999em)
---cal-compressed-to-cal-week // (min-width: 20em) and (max-width: 44.999em)
---cal-compressed-to-cal-2-weeks // (min-width: 20em) and (max-width: 93.999em)
---cal-week-to-cal-2-weeks // (min-width: 45em) and (max-width: 93.999em)
-```
-
-> Because `min-width` and `max-width` are the most used media queries, they deserve to be the shortest to be written, so the names generated with `--w()` follow specific rules:
-> - No `--width` prefix: so `--cal-week` and `--to-cal-week` instead of `--width-cal-week` and `--width-to-cal-week`. 
-> - No `from-` prefix for `min-width`: `cal-week` instead of `from-cal-week`.
-
-When using the all-round `--w` mixin, prefixes (`` and `to-`) can be replaced with 2 more arguments:
-
-```scss
-@include --w($breakpoints-cal, 'w-from-', 'w-to-');
-```
-The resulting available custom media queries become:
-- `--w-from-cal-compressed`, `--w-to-cal-compressed`
-- `--w-from-cal-week`, `--w-to-cal-week`
-- `--w-from-cal-2-weeks`, `--w-to-cal-2-weeks`
-- `--cal-compressed-to-cal-week`
-- `--cal-compressed-to-cal-2-weeks`
-- `--cal-week-to-cal-2-weeks`
 
 ## Partial import
 

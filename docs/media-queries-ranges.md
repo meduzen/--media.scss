@@ -39,7 +39,7 @@ The first `@media` can also be written by putting the value before the feature n
 
 ## Declaring a custom media queries using ranges
 
-Let’s take the `--sticky-nav` declaration from the [complex query example](/doc/custom-media-queries.md#example-complex-query) in the custom media queries explanation.
+Let’s take the `--sticky-nav` declaration from the [complex query example](/docs/custom-media-queries.md#example-complex-query) in the custom media queries explanation.
 
 ### Without ranges
 
