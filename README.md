@@ -28,7 +28,7 @@ Double Dash is a SCSS library helping to declare [custom media queries](docs/cus
 - `npm install double-dash.scss` pulls the package into your project.
 - `@import '~double-dash.scss';` near the beginning of the main SCSS file enables Double Dash features.
 
-Note: awaiting for browsers to embrace Custom Media Queries, some CSS post-processing is needed. [Post CSS Present Env](https://preset-env.cssdb.org/) perfectly fills this gap.
+💡 Awaiting for browsers to embrace Custom Media Queries, some CSS post-processing is needed. [Post CSS Present Env](https://preset-env.cssdb.org/) perfectly fills this gap.
 
 ## Predefined custom media queries
 
@@ -41,7 +41,7 @@ Double Dash provides a set of custom media queries usable in `@media` rules out 
 **`--light`**: the user prefers a light UI.
 
 **`--any-theme`**: no colors preference.
-Aliases: `--any-color-scheme`, `--no-theme-preference`, `--no-color-scheme-preference`
+Aliases: `--any-color-scheme`, `--no-theme-preference`, `--no-color-scheme-preference`.
 
 
 ### Display ([display-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode))
@@ -134,17 +134,17 @@ They are now all usable in `@media`:
 #### Width and height
 
 ```scss
-@include --w-from(name, width)
-@include --w-to(name, width)
-@include --w-is(name, width)
-@include --w-from-to(name, smallerWidth, otherName, greaterWidth)
-@include --w(widthsList)
+@include --w-from(name, width);
+@include --w-to(name, width);
+@include --w-is(name, width);
+@include --w-from-to(name, smallerWidth, otherName, greaterWidth);
+@include --w(widthsList);
 
-@include --h-from(name, height)
-@include --h-to(name, height)
-@include --h-is(name, height)
-@include --h-from-to(name, smallerHeight, otherName, greaterHeight)
-@include --h(heightsList)
+@include --h-from(name, height);
+@include --h-to(name, height);
+@include --h-is(name, height);
+@include --h-from-to(name, smallerHeight, otherName, greaterHeight);
+@include --h(heightsList);
 ```
 
 [Width and height mixins documentation](/docs/ranged-sizes-mixins.md).
@@ -163,20 +163,6 @@ They are now all usable in `@media`:
 #### Ratio
 
 Soon.
-
-
-
-```scss
-```
-
-
-```scss
-
-
-```
-
-```scss
-```
 
 ## Partial import
 
