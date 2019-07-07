@@ -1,0 +1,14 @@
+## Taken from https://gitlab.com/meduzen/canistop/tree/master/browserslist
+
+Safari >= 11 # let
+
+Samsung >= 5 # arrow functions
+
+Firefox >= 55
+
+Chrome >= 55
+and_chr >= 55
+and_uc >= 11.8
+
+Opera >= 50
+Edge >= 17

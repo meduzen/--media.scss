@@ -1,0 +1,28 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "webpack --config=webpack.config.js",
+        "watch": "webpack --watch --progress --config=webpack.config.js"
+    },
+    "dependencies": {
+        "double-dash.scss": "^0.5.0",
+        "family.scss": "^1.0.8",
+        "normalize.css": "^8.0.0"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.26.7",
+        "browser-sync-webpack-plugin": "^2.2.0",
+        "clean-webpack-plugin": "^0.1.19",
+        "css-loader": "^2.1.1",
+        "friendly-errors-webpack-plugin": "^1.7.0",
+        "mini-css-extract-plugin": "^0.5.0",
+        "node-sass": "^4.12.0",
+        "postcss-loader": "^3.0.0",
+        "postcss-preset-env": "^6.5.0",
+        "sass-loader": "^7.1.0",
+        "webpack": "^4.35.2",
+        "webpack-build-notifier": "^1.0.3",
+        "webpack-cli": "^3.3.5"
+    }
+}
