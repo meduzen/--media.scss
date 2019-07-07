@@ -1,5 +1,3 @@
-**Currently writing the documentation**
-
 # Double Dash Media Queries
 
 Double Dash + PostCSS = **the next decade media queries workflow, right now**.
