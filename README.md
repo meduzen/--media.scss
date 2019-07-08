@@ -4,8 +4,7 @@ Double Dash + PostCSS = **the next decade media queries workflow, right now**.
 
 Double Dash is a SCSS library helping to declare [custom media queries](docs/custom-media-queries.md). It includes:
 - predefined custom media queries, covering the whole specs;
-- mixins that generate *ranged* media queries (`min-width`, `max-width`…);
-- a generic mixin to declare any custom media query faster.
+- mixins that generate *ranged* media queries (`min-width`, `max-width`…).
 
 ## Contents
 
@@ -26,7 +25,7 @@ Double Dash is a SCSS library helping to declare [custom media queries](docs/cus
 - `npm install double-dash.scss` pulls the package into your project.
 - `@import '~double-dash.scss';` near the beginning of the main SCSS file enables Double Dash features.
 
-💡 Awaiting for browsers to embrace Custom Media Queries, some CSS post-processing is needed. [Post CSS Present Env](https://preset-env.cssdb.org/) perfectly fills this gap.
+💡 Awaiting for browsers to embrace Custom Media Queries, some CSS post-processing is needed. [Post CSS Preset Env](https://preset-env.cssdb.org/) perfectly fills this gap.
 
 ## Predefined custom media queries
 
