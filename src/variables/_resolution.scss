@@ -1,7 +1,8 @@
 $dppx: (
   '1x': 1, // 96 dpi
   '2x': 2, // 192 dpi
-  'switch': 2.46875, // 237ppi, 1280px * 720px, 6.2 inches
+  'switch': 2.46875, // 237dpi, 1280px * 720px, 6.2 inches
+  'switch-lite': 2.78145833, // 267.02dpi, 1280px * 720px, 5.5 inches
 );
 
 // --resolution-from-1x, --resolution-from-2x,--resolution-from-switch
