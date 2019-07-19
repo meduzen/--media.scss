@@ -21,7 +21,7 @@
 
 // Width
 
-@mixin --w($widths, $from-prefix: '', $to-prefix: 'to-') {
+@mixin --w($widths, $from-prefix: null, $to-prefix: 'to-') {
   @each $name, $width in $widths {
     @include --w-from(#{$name}, #{$width}, #{$from-prefix});
     @include --w-to(#{$name}, #{$width}, #{$to-prefix});
@@ -34,15 +34,15 @@
   }
 }
 
-@mixin --w-from($name, $width, $prefix: '') {
+@mixin --w-from($name, $width, $prefix: null) {
   @include --media(#{$prefix}#{$name}, 'width >=' #{$width});
 }
 
-@mixin --w-is($name, $width, $prefix: 'is-') {
+@mixin --w-is($name, $width, $prefix: null) {
   @include --media(#{$prefix}#{$name}, unquote('width:') #{$width});
 }
 
-@mixin --w-to($name, $width, $prefix: 'to-') {
+@mixin --w-to($name, $width, $prefix: null) {
   @include --media(#{$prefix}#{$name}, 'width <' #{$width});
 }
 
@@ -65,15 +65,15 @@
   }
 }
 
-@mixin --h-from($name, $height, $prefix: 'h-') {
+@mixin --h-from($name, $height, $prefix: null) {
   @include --media(#{$prefix}#{$name}, 'height >=' #{$height});
 }
 
-@mixin --h-is($name, $height, $prefix: 'h-is-') {
+@mixin --h-is($name, $height, $prefix: null) {
   @include --media(#{$prefix}#{$name}, unquote('height:') #{$height});
 }
 
-@mixin --h-to($name, $height, $prefix: 'h-to-') {
+@mixin --h-to($name, $height, $prefix: null) {
   @include --media(#{$prefix}#{$name}, 'height <' #{$height});
 }
 
