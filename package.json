@@ -21,5 +21,8 @@
   "repository": "github:meduzen/--media.scss.git",
   "bugs": {
     "url": "https://github.com/meduzen/--media.scss/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
