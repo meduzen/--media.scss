@@ -33,7 +33,7 @@
 }
 
 @mixin --ratio-from($name, $ratio, $prefix: null) {
-  @include --media(#{$prefix}#{$name}, 'aspect-ratio >' #{$ratio});
+  @include --media(#{$prefix}#{$name}, 'aspect-ratio >=' #{$ratio});
 }
 
 @mixin --ratio-is($name, $ratio, $prefix: null) {
@@ -41,5 +41,5 @@
 }
 
 @mixin --ratio-to($name, $ratio, $prefix: null) {
-  @include --media(#{$prefix}#{$name}, 'aspect-ratio <' #{$ratio});
+  @include --media(#{$prefix}#{$name}, 'aspect-ratio <=' #{$ratio});
 }
