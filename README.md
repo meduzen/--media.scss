@@ -59,7 +59,7 @@ These custom media queries matches the [Web Manifest `display`](https://develope
 Aliases: `--no-motion`, `--less-motion`, `--stop`.
 
 **`--no-motion-preference`**: the user doesn’t want less animation.
-Aliases: `--motion`, `--full-motion`, `--play`, `--animate-all-the-things`, `party-parrot`.
+Aliases: `--motion`, `--full-motion`, `--play`, `--animate-all-the-things`, `--party-parrot`.
 
 Example:
 ```scss
