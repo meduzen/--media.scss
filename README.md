@@ -19,6 +19,7 @@ Double Dash is a SCSS library helping to declare [custom media queries](docs/cus
     - [Introduction](#introduction)
     - [Available mixins](#available-mixins)
 - [Partial import](#partial-import)
+- [Debug](#debug)
 
 ## Installation
 
@@ -177,7 +178,7 @@ Available files: `color`, `js`, `light`, `motion`, `pointer`, `ratio`, `refresh`
 
 ### Import mixins for ranged media queries
 
-First, import the generic `--media` mixins: the other mixins use it:
+First, import the generic `--media` mixins (the other mixins use it):
 
 ```scss
 @import '~double-dash.scss/src/mixins/base';
@@ -190,3 +191,12 @@ Then, pulls the mixins for viewport sizes custom media queries:
 ```
 
 Available files: `ratio`, `resolution`, `sizes`.
+
+## Debug
+
+You can output each custom media query generated with Double Dash in your CLI by setting the `$dash-dash-debug` variable before importing Double Dash.
+
+```scss
+$dash-dash-debug: true;
+@import '~double-dash.scss';
+```

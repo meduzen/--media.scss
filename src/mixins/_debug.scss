@@ -1,0 +1,5 @@
+$dash-dash-should-debug: false;
+
+@if variable-exists('dash-dash-debug') == true and $dash-dash-debug == true {
+  $dash-dash-should-debug: true;
+}
