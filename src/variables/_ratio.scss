@@ -5,9 +5,19 @@
  *    --from-16-9, --is-16-9, --to-16-9
  *
  *    --landscape, --square, --portrait
+ *
+ *  Note: also see some commercial aspect ratio quirks…
+ *  - 21/9: https://en.wikipedia.org/wiki/21:9_aspect_ratio
  */
+
 $ratio: (
+  '5-4': '5/4', // 1.25, photography
+  '4-3': '4/3', // 1.3333, TV
+  '3-2': '3/2', // 1.5, photography
+  '5-3': '5/3', // 1.6666, photography
   '16-9': '16/9', // 1.7777, TV
+  '21-9': '21/9', // 2.3333, cinema
+  '64-27': '64/27', // 2.37037037, cinema
 );
 
 @include --ratio($ratio, 'from-', 'is-', 'to-');
