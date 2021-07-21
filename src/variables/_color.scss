@@ -20,13 +20,16 @@
 // https://drafts.csswg.org/mediaqueries-5/#prefers-contrast
 
 // prefers-contrast: no-preference
+@custom-media --any-contrast (prefers-contrast: no-preference);
 @custom-media --normal-contrast (prefers-contrast: no-preference);
 @custom-media --no-contrast-preference (prefers-contrast: no-preference);
 
-// prefers-contrast: high
-@custom-media --high-contrast (prefers-contrast: high);
-@custom-media --contrasted (prefers-contrast: high);
+// prefers-contrast: more
+@custom-media --high-contrast (prefers-contrast: more);
+@custom-media --more-contrast (prefers-contrast: more);
+@custom-media --contrasted (prefers-contrast: more);
 
-// prefers-contrast: low
-@custom-media --low-contrast (prefers-contrast: low);
+// prefers-contrast: less
+@custom-media --low-contrast (prefers-contrast: less);
+@custom-media --less-contrast (prefers-contrast: less);
 
