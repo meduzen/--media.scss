@@ -11,6 +11,7 @@ Double Dash is a SCSS library helping to declare [custom media queries](docs/cus
 - [Installation](#installation)
 - [Predefined custom media queries](#predefined-custom-media-queries)
   - [Color scheme (`prefers-color-scheme`)](#colors-scheme-prefers-color-scheme)
+  - [Contrast (`prefers-contrast`)](#contrast-prefers-contrast)
   - [Display (`display-mode`)](#display-display-mode)
   - [Motion (`prefers-reduced-motion`)](#motion-prefers-reduced-motion)
   - [Ratios (`aspect-ratio`)](#ratios-aspect-ratio)
@@ -40,9 +41,16 @@ Double Dash provides a set of custom media queries usable in `@media` rules out 
 **`--light`**: the user prefers a light UI or has no colors preference.
 Aliases: `--any-theme`, `--any-color-scheme`, `--no-theme-preference`, `--no-color-scheme-preference`.
 
-**`--any-theme`**: no colors preference.
-Aliases: `--any-color-scheme`, `--no-theme-preference`, `--no-color-scheme-preference`.
+### Contrast ([prefers-contrast](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast))
 
+**`--more-contrast`**: the user prefers a UI with a higher level of contrast.
+Aliases: `--high-contrast`, `--contrasted`.
+
+**`--less-contrast`**: the user prefers a UI with a lower level of contrast.
+Alias: `--low-contrast`.
+
+**`--no-contrast-preference`**: the user has no contrast preference.
+Aliases: `--any-contrast`, `--normal-contrast`.
 
 ### Display ([display-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode))
 
