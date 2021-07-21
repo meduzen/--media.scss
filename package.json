@@ -1,12 +1,15 @@
 {
   "name": "double-dash.scss",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "A set of SCSS mixins and variables to organize custom media queries.",
   "main": "src/double-dash.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "files": ["docs", "src"],
+  "files": [
+    "docs",
+    "src"
+  ],
   "keywords": [
     "css",
     "media queries",
