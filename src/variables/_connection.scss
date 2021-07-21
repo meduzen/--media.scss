@@ -1,0 +1,8 @@
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-data
+
+// prefers-reduced-data: reduce
+@custom-media --reduced-data (prefers-reduced-data: reduce);
+
+// prefers-reduced-data: no-preference
+@custom-media --no-data-preference (prefers-reduced-data: no-preference);
+@custom-media --data (prefers-reduced-data: no-preference);

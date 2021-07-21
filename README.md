@@ -14,6 +14,7 @@ Double Dash is a SCSS library helping to declare [custom media queries](docs/cus
   - [Display (`display-mode`)](#display-display-mode)
   - [Motion (`prefers-reduced-motion`)](#motion-prefers-reduced-motion)
   - [Ratios (`aspect-ratio`)](#ratios-aspect-ratio)
+  - [Connectivity (`prefers-reduced-data`)](#connectivity-prefers-reduced-data)
   - [Others](#others)
 - [Mixins for ranged media queries](#mixins-for-ranged-media-queries)
     - [Introduction](#introduction)
@@ -83,6 +84,25 @@ Alias: `--horizontal`.
 
 **`--portrait`**: the viewport width is smaller than its height.
 Alias: `--vertical`.
+
+### Connectivity ([prefers-reduced-data](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-data))
+
+**`--reduced-data`**: the user prefers to save data.
+Alias: `--data-shortage`.
+
+**`--no-data-preference`**: the user doesn’t prefer to save data.
+Alias: `--data`.
+
+Example:
+```scss
+.hero {
+  background-image: url('wedding-pic-2048-1024.webp');
+
+  @media (--reduced-data) {
+    background-image: none;
+  }
+}
+```
 
 ### Others
 
