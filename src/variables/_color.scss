@@ -33,3 +33,13 @@
 @custom-media --low-contrast (prefers-contrast: less);
 @custom-media --less-contrast (prefers-contrast: less);
 
+// https://drafts.csswg.org/mediaqueries-5/#dynamic-range
+
+// dynamic-range: high
+@custom-media --hdr (dynamic-range: high);
+@custom-media --high-dynamic-range (dynamic-range: high);
+
+// dynamic-range: standard
+@custom-media --no-hdr (dynamic-range: standard);
+@custom-media --no-dynamic-range (dynamic-range: standard);
+@custom-media --standard-dynamic-range (dynamic-range: standard);
