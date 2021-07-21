@@ -10,14 +10,12 @@
 @custom-media --dark (prefers-color-scheme: dark);
 
 // prefers-color-scheme: light
-@custom-media --light (prefers-color-scheme: light);
-
-// prefers-color-scheme: no-preference
-$no-theme-preference: 'prefers-color-scheme: no-preference';
-@include --m(any-theme, $no-theme-preference);
-@include --m(any-color-scheme, $no-theme-preference);
-@include --m(no-theme-preference, $no-theme-preference);
-@include --m(no-color-scheme-preference, $no-theme-preference);
+$colors-scheme-default: 'prefers-color-scheme: light';
+@include --m(light, $colors-scheme-default);
+@include --m(any-theme, $colors-scheme-default);
+@include --m(any-color-scheme, $colors-scheme-default);
+@include --m(no-theme-preference, $colors-scheme-default);
+@include --m(no-color-scheme-preference, $colors-scheme-default);
 
 // https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-transparency
 
