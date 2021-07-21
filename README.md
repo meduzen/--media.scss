@@ -37,7 +37,8 @@ Double Dash provides a set of custom media queries usable in `@media` rules out 
 
 **`--dark`**: the user prefers a dark UI.
 
-**`--light`**: the user prefers a light UI.
+**`--light`**: the user prefers a light UI or has no colors preference.
+Aliases: `--any-theme`, `--any-color-scheme`, `--no-theme-preference`, `--no-color-scheme-preference`.
 
 **`--any-theme`**: no colors preference.
 Aliases: `--any-color-scheme`, `--no-theme-preference`, `--no-color-scheme-preference`.
