@@ -1,14 +1,14 @@
 // Base mixin used by the others
-@import 'base';
+@forward 'base';
 
 // Types mixins
-@import 'types/types';
+@forward 'types/types';
 
 // Mixins for viewport aspect-ratio
-@import 'ratio';
+@forward 'ratio';
 
 // Mixins for device resolution
-@import 'resolution';
+@forward 'resolution';
 
 // Mixins for viewport width and height
-@import 'sizes';
+@forward 'sizes';

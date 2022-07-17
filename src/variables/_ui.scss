@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode
 @custom-media --minimal-ui (display-mode: minimal-ui);
 @custom-media --fullscreen (display-mode: fullscreen);
@@ -11,21 +13,21 @@
 
 // prefers-color-scheme: light
 $colors-scheme-default: 'prefers-color-scheme: light';
-@include --m(light, $colors-scheme-default);
-@include --m(any-theme, $colors-scheme-default);
-@include --m(any-color-scheme, $colors-scheme-default);
-@include --m(no-theme-preference, $colors-scheme-default);
-@include --m(no-color-scheme-preference, $colors-scheme-default);
+@include m(light, $colors-scheme-default);
+@include m(any-theme, $colors-scheme-default);
+@include m(any-color-scheme, $colors-scheme-default);
+@include m(no-theme-preference, $colors-scheme-default);
+@include m(no-color-scheme-preference, $colors-scheme-default);
 
 // https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-transparency
 
 // prefers-reduced-transparency: reduce
 $reduced-transparency: 'prefers-reduced-transparency: reduce';
-@include --m(reduced-transparency, $reduced-transparency);
-@include --m(less-transparency, $reduced-transparency);
+@include m(reduced-transparency, $reduced-transparency);
+@include m(less-transparency, $reduced-transparency);
 
 // prefers-reduced-transparency: no-preference
 $no-transparency-preference: 'prefers-reduced-transparency: no-preference';
-@include --m(no-transparency-preference, $no-transparency-preference);
-@include --m(transparency, $no-transparency-preference);
-@include --m(full-transparency, $no-transparency-preference);
+@include m(no-transparency-preference, $no-transparency-preference);
+@include m(transparency, $no-transparency-preference);
+@include m(full-transparency, $no-transparency-preference);

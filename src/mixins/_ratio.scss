@@ -1,3 +1,5 @@
+@use './base' as *;
+
 /* VIEWPORT RATIO IN FRACTION
  *
  * Turns a SASS list into resolution custom media queries.
@@ -11,7 +13,7 @@
  * Example usage:
  *
  * $ratios: ('16-9': 16/9, '4-3': 4/3);
- * @include --ratio($ratios);
+ * @include ratio($ratios);
  *
  * Available custom media queries:
  *
@@ -24,22 +26,22 @@
  *   2. `orientation` is limited to two values (`portrait` and `landscape`).
  */
 
-@mixin --ratio($ratios, $from-prefix: 'ratio-from-', $exact-prefix: 'ratio-', $to-prefix: 'ratio-to-') {
+@mixin ratio($ratios, $from-prefix: 'ratio-from-', $exact-prefix: 'ratio-', $to-prefix: 'ratio-to-') {
   @each $name, $ratio in $ratios {
-    @include --ratio-from($name, $ratio, $from-prefix);
-    @include --ratio-is($name, $ratio, $exact-prefix);
-    @include --ratio-to($name, $ratio, $to-prefix);
+    @include ratio-from($name, $ratio, $from-prefix);
+    @include ratio-is($name, $ratio, $exact-prefix);
+    @include ratio-to($name, $ratio, $to-prefix);
   }
 }
 
-@mixin --ratio-from($name, $ratio, $prefix: null) {
-  @include --media(#{$prefix}#{$name}, 'aspect-ratio >=' #{$ratio});
+@mixin ratio-from($name, $ratio, $prefix: null) {
+  @include media(#{$prefix}#{$name}, 'aspect-ratio >=' #{$ratio});
 }
 
-@mixin --ratio-is($name, $ratio, $prefix: null) {
-  @include --media(#{$prefix}#{$name}, unquote('aspect-ratio:') #{$ratio});
+@mixin ratio-is($name, $ratio, $prefix: null) {
+  @include media(#{$prefix}#{$name}, unquote('aspect-ratio:') #{$ratio});
 }
 
-@mixin --ratio-to($name, $ratio, $prefix: null) {
-  @include --media(#{$prefix}#{$name}, 'aspect-ratio <=' #{$ratio});
+@mixin ratio-to($name, $ratio, $prefix: null) {
+  @include media(#{$prefix}#{$name}, 'aspect-ratio <=' #{$ratio});
 }

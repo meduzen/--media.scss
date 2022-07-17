@@ -1,15 +1,15 @@
 /*
  * MEDIA SCREEN MIXIN
  *
- * A screen based mixin. Same signature as the `--media` one.
+ * A screen based mixin. Same signature as the `media` one.
  *
  * Example:
- * @include --screen(wide-as-hell, 'width >= 150em')
+ * @include screen(wide-as-hell, 'width >= 150em')
  * generates
  * @custom-media --wide-as-hell screen and (min-width: 150em)
  */
 
-@mixin --screen($name, $argsFeatures...) {
+@mixin screen($name, $argsFeatures...) {
   $features: null;
 
   $index: 1;

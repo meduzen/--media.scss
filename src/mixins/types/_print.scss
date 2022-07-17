@@ -1,15 +1,15 @@
 /*
  * MEDIA PRINT MIXIN
  *
- * A print based mixin. Same signature as the `--media` one.
+ * A print based mixin. Same signature as the `media` one.
  *
  * Example:
- * @include --print(small-sheet, 'width < 20cm')
+ * @include print(small-sheet, 'width < 20cm')
  * generates
  * @custom-media --small-sheet print and (max-width: 19.999cm)
  */
 
-@mixin --print($name, $argsFeatures...) {
+@mixin print($name, $argsFeatures...) {
   $features: null;
 
   $index: 1;

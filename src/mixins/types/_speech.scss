@@ -1,11 +1,10 @@
 /*
  * MEDIA SPEECH MIXIN
  *
- * A speech based mixin. Same signature as the `--media` one.
- *
+ * A speech based mixin. Same signature as the `media` one.
  */
 
-@mixin --speech($name, $argsFeatures...) {
+@mixin speech($name, $argsFeatures...) {
   $features: null;
 
   $index: 1;

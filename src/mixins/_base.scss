@@ -1,4 +1,4 @@
-@import 'debug';
+$debug: false !default;
 
 /*
  * MEDIA MIXIN
@@ -10,12 +10,12 @@
  *  $argsFeatures: media features
  *
  * Example:
- * @include --media(wide-as-hell, 'width >= 150em')
+ * @include media(wide-as-hell, 'width >= 150em')
  * generates
  * @custom-media --wide-as-hell (min-width: 150em)
  */
 
-@mixin --media($name, $argsFeatures...) {
+@mixin media($name, $argsFeatures...) {
   $features: null;
 
   $index: 1;
@@ -35,13 +35,13 @@
 
   @custom-media --#{$name} #{$features};
 
-  @if $dash-dash-should-debug {
+  @if $debug {
     @debug unquote('@custom-media ') --#{$name} unquote('#{$features}');
   }
 }
 
-/* --media() ALIAS */
+/* media() ALIAS */
 
-@mixin --m($name, $args...) {
-  @include --media($name, $args);
+@mixin m($name, $args...) {
+  @include media($name, $args);
 }

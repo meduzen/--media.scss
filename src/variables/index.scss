@@ -2,13 +2,13 @@
 // https://drafts.csswg.org/mediaqueries-4/
 // https://drafts.csswg.org/mediaqueries-5/
 
-@import 'color';
-@import 'connection';
-@import 'js';
-@import 'light';
-@import 'motion';
-@import 'pointer';
-@import 'ratio';
-@import 'refresh';
-@import 'resolution';
-@import 'ui';
+@forward 'color';
+@forward 'connection';
+@forward 'js';
+@forward 'light';
+@forward 'motion';
+@forward 'pointer';
+@forward 'ratio';
+@forward 'refresh';
+@forward 'resolution';
+@forward 'ui';
