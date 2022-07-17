@@ -72,16 +72,16 @@ Don’t need SCSS | ✅ | ❌ | ✅ | ❌
 Don’t need PostCSS now | ✅ | ✅ | ❌ | ❌
 Won’t need PostCSS in the future | ✅ | ✅ | ✅ | ✅
 Concise declaration | no declaration | ❌ (mixins and/or variables) | ❌ | ✅ partly invisible
-Concise use | ❌ | ☑️ | ✅ | ✅ 
-Combining queries | easy but unreadable | nesting (extra indentations) or advanced mixins | easy and readable | easy and readable
+Concise use | ❌ | ☑️ (almost) | ✅ | ✅ 
+Combining queries | easy but low readability | nesting or advanced mixins | easy and readable | easy and readable
 Explicit naming | ❌ | ☑️ (a lot of efforts for queries combinations) | ✅ | ✅
-No naming conflict with SCSS variables | ✅ | ❌ (if breakpoint variables) | ✅ | ✅
+No naming conflict with SCSS variables | ✅ | ❌ (when using breakpoint variables) | ✅ | ✅
 Lighter CSS bundle in the future | ❌ | ❌ | ✅ | ✅
 
 ## What’s next?
 
 - [Media query ranges](/docs/media-queries-ranges.md), another cool thing from the CSS Media Queries specs level 4 and 5.
-- Supercharge your Custom media queries workflow with [Double Dash](/)!!
+- Supercharge your custom media queries workflow with [Double Dash](/)!!
 
 ## Example: dark mode
 
@@ -124,13 +124,19 @@ For this example, we style a navigation menu:
 *Words are not the best way to shape a clear understanding of what we try to achieve. But let’s try.*
 
 The navigation menu:
-- is sticky on small viewports (but not on too small height);
+- is sticky on small viewports (except when the height is too small);
 - has a transparent background when sticky;
 - has a background image on greater viewport.
 
 The served background image varies depending on:
 - viewport pixels density;
 - color scheme.
+
+In other words, this advanced scenario relies on 4 factors:
+- the viewport size;
+- the screen pixel density;
+- the operating system color schemes;
+- the stickiness state of the navigation menu.
 
 ### Plain media query
 
