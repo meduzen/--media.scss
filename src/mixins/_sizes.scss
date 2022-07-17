@@ -1,3 +1,5 @@
+@use './base' as *;
+
 /* SIZES (WIDTH AND HEIGHT)
  *
  * Turns a SASS list into width or height custom media queries.
@@ -10,7 +12,7 @@
  * Example usage:
  *
  * $breakpoints-widths: ('smallest': 20em, 'switch': 80em);
- * @include --w($breakpoints-widths);
+ * @include w($breakpoints-widths);
  *
  * Available custom media queries:
  *
@@ -21,62 +23,62 @@
 
 // Width
 
-@mixin --w($widths, $from-prefix: null, $to-prefix: 'to-') {
+@mixin w($widths, $from-prefix: null, $to-prefix: 'to-') {
   @each $name, $width in $widths {
-    @include --w-from(#{$name}, #{$width}, #{$from-prefix});
-    @include --w-to(#{$name}, #{$width}, #{$to-prefix});
+    @include w-from(#{$name}, #{$width}, #{$from-prefix});
+    @include w-to(#{$name}, #{$width}, #{$to-prefix});
 
     @each $other-name, $other-width in $widths {
       @if $width < $other-width {
-        @include --w-from-to(#{$name}, #{$width}, #{$other-name}, #{$other-width});
+        @include w-from-to(#{$name}, #{$width}, #{$other-name}, #{$other-width});
       }
     }
   }
 }
 
-@mixin --w-from($name, $width, $prefix: null) {
-  @include --media(#{$prefix}#{$name}, 'width >=' #{$width});
+@mixin w-from($name, $width, $prefix: null) {
+  @include media(#{$prefix}#{$name}, 'width >=' #{$width});
 }
 
-@mixin --w-is($name, $width, $prefix: null) {
-  @include --media(#{$prefix}#{$name}, unquote('width:') #{$width});
+@mixin w-is($name, $width, $prefix: null) {
+  @include media(#{$prefix}#{$name}, unquote('width:') #{$width});
 }
 
-@mixin --w-to($name, $width, $prefix: null) {
-  @include --media(#{$prefix}#{$name}, 'width <' #{$width});
+@mixin w-to($name, $width, $prefix: null) {
+  @include media(#{$prefix}#{$name}, 'width <' #{$width});
 }
 
-@mixin --w-from-to($min-name, $min-width, $max-name, $max-width) {
-  @include --media(#{$min-name}-to-#{$max-name}, #{$min-width} '<= width <' #{$max-width});
+@mixin w-from-to($min-name, $min-width, $max-name, $max-width) {
+  @include media(#{$min-name}-to-#{$max-name}, #{$min-width} '<= width <' #{$max-width});
 }
 
 // Height
 
-@mixin --h($heights, $from-prefix: 'h-', $to-prefix: 'h-to-') {
+@mixin h($heights, $from-prefix: 'h-', $to-prefix: 'h-to-') {
   @each $name, $height in $heights {
-    @include --h-from(#{$name}, #{$height}, #{$from-prefix});
-    @include --h-to(#{$name}, #{$height}, #{$to-prefix});
+    @include h-from(#{$name}, #{$height}, #{$from-prefix});
+    @include h-to(#{$name}, #{$height}, #{$to-prefix});
 
     @each $other-name, $other-height in $heights {
       @if $height < $other-height {
-        @include --h-from-to(#{$name}, #{$height}, #{$other-name}, #{$other-height});
+        @include h-from-to(#{$name}, #{$height}, #{$other-name}, #{$other-height});
       }
     }
   }
 }
 
-@mixin --h-from($name, $height, $prefix: null) {
-  @include --media(#{$prefix}#{$name}, 'height >=' #{$height});
+@mixin h-from($name, $height, $prefix: null) {
+  @include media(#{$prefix}#{$name}, 'height >=' #{$height});
 }
 
-@mixin --h-is($name, $height, $prefix: null) {
-  @include --media(#{$prefix}#{$name}, unquote('height:') #{$height});
+@mixin h-is($name, $height, $prefix: null) {
+  @include media(#{$prefix}#{$name}, unquote('height:') #{$height});
 }
 
-@mixin --h-to($name, $height, $prefix: null) {
-  @include --media(#{$prefix}#{$name}, 'height <' #{$height});
+@mixin h-to($name, $height, $prefix: null) {
+  @include media(#{$prefix}#{$name}, 'height <' #{$height});
 }
 
-@mixin --h-from-to($min-name, $min-height, $max-name, $max-height) {
-  @include --media(h-#{$min-name}-to-#{$max-name}, #{$min-height} '<= height <' #{$max-height});
+@mixin h-from-to($min-name, $min-height, $max-name, $max-height) {
+  @include media(h-#{$min-name}-to-#{$max-name}, #{$min-height} '<= height <' #{$max-height});
 }

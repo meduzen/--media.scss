@@ -1,3 +1,10 @@
-@import 'mixins/mixins';
-@import 'variables/variables';
+// Setup debug mode
+$debug: false !default;
+@forward 'mixins/base' with ($debug: $debug);
+
+// Forward mixins and setup all the @custom-media.
+@forward 'mixins';
+@forward 'variables';
+
+// Potential idea for the future…
 // @import 'collections/collections';
