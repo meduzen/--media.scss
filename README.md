@@ -16,6 +16,7 @@ Double Dash is a SCSS library helping to declare [custom media queries](docs/cus
   - [Connectivity (`prefers-reduced-data`)](#connectivity-prefers-reduced-data)
   - [Contrast (`prefers-contrast`)](#contrast-prefers-contrast)
   - [Display (`display-mode`)](#display-display-mode)
+  - [Forced colors (`forced-colors`)](#forced-colors-forced-colors)
   - [Motion (`prefers-reduced-motion`)](#motion-prefers-reduced-motion)
   - [Ratio (`aspect-ratio`)](#ratio-aspect-ratio)
   - [Others](#others)
@@ -125,6 +126,14 @@ These custom media queries matches the [Web Manifest `display`](https://develope
 **`--minimal-ui`**: same as `standalone`, with some browser UI elements.
 
 **`--browser`**: the website is open in a browser tab or window.
+
+### Forced colors ([`forced-colors`](https://github.com/meduzen/--media.scss/issues/17))
+
+**These two custom media queries are not released, yet.**
+
+**`--forced-colors`**: the available colors are limited to a user-chosen color palette.
+
+**`--no-forced-colors`**: the available colors are not restricted by a user-chosen color palette.
 
 ### Motion ([prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion))
 
