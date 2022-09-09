@@ -32,7 +32,7 @@ Compare with [previous version](https://github.com/meduzen/--media.scss/compare/
 
 ## v0.8.0 (2021-07-21)
 
-Compare with [previous version](https://github.com/meduzen/--media.scss/compare/v0.7.1...v0.8.0).
+Compare with [previous version](https://github.com/meduzen/--media.scss/compare/0.7.1...v0.8.0).
 
 ### New
 
@@ -44,7 +44,7 @@ Compare with [previous version](https://github.com/meduzen/--media.scss/compare/
 
 ## v0.7.1 (2020-12-29)
 
-Compare with [previous version](https://github.com/meduzen/--media.scss/compare/v0.7.0...v0.7.1).
+Compare with [previous version](https://github.com/meduzen/--media.scss/compare/0.7.0...0.7.1).
 
 ### Chore
 
@@ -52,7 +52,7 @@ Compare with [previous version](https://github.com/meduzen/--media.scss/compare/
 
 ## v0.7.0 (2020-11-15)
 
-Compare with [previous version](https://github.com/meduzen/--media.scss/compare/v0.6.1...v0.7.0).
+Compare with [previous version](https://github.com/meduzen/--media.scss/compare/v0.6.1...0.7.0).
 
 ### New
 
