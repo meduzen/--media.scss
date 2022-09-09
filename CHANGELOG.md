@@ -8,7 +8,7 @@ Compare with [last published version](https://github.com/meduzen/--media.scss/co
 
 ### New
 
-- Add `forced-colors` (#18).
+- Add `forced-colors`.
 
 ### Documentation
 
@@ -20,11 +20,11 @@ Compare with [previous version](https://github.com/meduzen/--media.scss/compare/
 
 ### New
 
-- Add support for Dart SASS (#15).
+- Add support for Dart SASS.
 - [Nintendo Switch](https://github.com/meduzen/--media.scss/blob/2db0feaf890fc2188069ffc4c87ea81be00af601/src/variables/_resolution.scss#L6-L8):
   - add a custom media query for the Nintendo Switch OLED;
   - fix the Nintendo Switch custom media query.
-- Remove unneeded space from media features. (8842e23)
+- Remove unneeded space from media features.
 
 ### Breaking
 
@@ -36,11 +36,11 @@ Compare with [previous version](https://github.com/meduzen/--media.scss/compare/
 
 ### New
 
-- Add `prefers-reduced-data`. (#12)
+- Add `prefers-reduced-data`.
 
 ### Breaking
 
-- Update level-5 Media Queries following spec. (#13)
+- Update level-5 Media Queries following spec.
 
 ## v0.7.1 (2020-12-29)
 
@@ -48,7 +48,7 @@ Compare with [previous version](https://github.com/meduzen/--media.scss/compare/
 
 ### Chore
 
-- Fix EditorConfig and remove it from shipped files (8f48d7d). This has no impact on the library usage.
+- Fix EditorConfig and remove it from shipped files. This has no impact on the library usage.
 
 ## v0.7.0 (2020-11-15)
 
@@ -56,7 +56,7 @@ Compare with [previous version](https://github.com/meduzen/--media.scss/compare/
 
 ### New
 
-- Add [debug mode](https://github.com/meduzen/--media.scss#debug) to output generated custom media queries in the CLI. (#6)
+- Add [debug mode](https://github.com/meduzen/--media.scss#debug) to output generated custom media queries in the CLI.
 
 ## v0.6.1 (2020-07-11)
 
@@ -64,7 +64,7 @@ Compare with [previous version](https://github.com/meduzen/--media.scss/compare/
 
 ### Fix
 
-- Fix ratios media queries generating unparsable media features. (#9)
+- Fix ratios media queries generating unparsable media features.
 
 ## v0.6.0 (2019-07-19)
 
