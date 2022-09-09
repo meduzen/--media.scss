@@ -4,7 +4,11 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## Unreleased
 
-Compare with [last published version](https://github.com/meduzen/--media.scss/compare/v1.0.0-rc.0...main).
+Compare with [last published version](https://github.com/meduzen/--media.scss/compare/v1.0.0...main).
+
+## v1.0.0 (2022-09-09)
+
+Compare with [last published version](https://github.com/meduzen/--media.scss/compare/v1.0.0-rc.0...v1.0.0).
 
 ### New
 
@@ -14,7 +18,11 @@ Compare with [last published version](https://github.com/meduzen/--media.scss/co
 
 - Add CHANGELOG file (this file).
 
-## v1.0.0-rc.0 (2022-20-17)
+### Breaking
+
+`v1.0.0` is now the default version and `v0.8.0` can be pulled by running `npm install double-dash.scss@0`.
+
+## v1.0.0-rc.0 (2022-07-20)
 
 Compare with [previous version](https://github.com/meduzen/--media.scss/compare/v0.8.0...v1.0.0-rc.0).
 

@@ -47,14 +47,14 @@ Double Dash is a SCSS library helping to declare [custom media queries](docs/cus
 
 **Dart SASS support starts at version 1.0.**
 
-- `npm install double-dash.scss@dart-sass` pulls the package into your project;
+- `npm install double-dash.scss` pulls the package into your project;
 - `@use 'double-dash.scss' as mq;` in all projects where you need one of its mixins or variables. `mq` is the recommended [namespace](https://sass-lang.com/documentation/at-rules/use#choosing-a-namespace) for `double-dash.scss`.
 
 ### Projects using `node-sass`
 
 **Projects using `node-sass` must stick to version `0.x`**
 
-- `npm install double-dash.scss@0` pulls the package into your project (for now, the `@0` part isn’t needed);
+- `npm install double-dash.scss@0` pulls the package into your project;
 - `@import 'double-dash.scss';` near the beginning of the main SCSS file enables Double Dash features.
 
 ### Browser support
