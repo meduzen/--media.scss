@@ -37,10 +37,7 @@
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors
 
-// forced-colors: active
 @custom-media --forced-colors (forced-colors: active);
-
-// forced-colors: none
 @custom-media --no-forced-colors (forced-colors: none);
 
 // https://drafts.csswg.org/mediaqueries-5/#dynamic-range
