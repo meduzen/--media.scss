@@ -1,8 +1,10 @@
 // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/monochrome
+
 @custom-media --monochrome (monochrome);
 @custom-media --not-monochrome (monochrome: 0);
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/color-gamut
+
 @custom-media --srgb (color-gamut: srgb);
 @custom-media --p3 (color-gamut: p3);
 @custom-media --rec2020 (color-gamut: rec2020);
@@ -32,6 +34,11 @@
 // prefers-contrast: less
 @custom-media --low-contrast (prefers-contrast: less);
 @custom-media --less-contrast (prefers-contrast: less);
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors
+
+@custom-media --forced-colors (forced-colors: active);
+@custom-media --no-forced-colors (forced-colors: none);
 
 // https://drafts.csswg.org/mediaqueries-5/#dynamic-range
 
