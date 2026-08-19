@@ -59,7 +59,7 @@ Double Dash is a SCSS library helping to declare [custom media queries](docs/cus
 
 ### Browser support
 
-💡 Awaiting for browsers to embrace Custom Media Queries, [PostCSS Preset Env](https://preset-env.cssdb.org) is perfect to fill the gap. If you need an example of a small project using both `double-dash.scss` and PostCSS, you can have a look at [Can We](https://github.com/meduzen/canwe) repository.
+💡 Awaiting for browsers to embrace Custom Media Queries, [PostCSS Preset Env](https://preset-env.cssdb.org) is perfect to fill the gap. If you need an example of a small project using both `double-dash.scss` and PostCSS, you can have a look at [Can We]([https://github.com/meduzen/canwe](https://github.com/meduzen/canwe/tree/8a2c0cde9b827cdd74421d1e9fdddedfe611ffe0)) repository.
 
 ## Predefined custom media queries
 
