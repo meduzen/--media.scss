@@ -14,7 +14,7 @@ $ratio: (
 
 @include ratio($ratio, 'from-', 'is-', 'to-');
 
-@include ratio-is('square', '1/1');
+@include ratio-is('square', '1');
 
 @include ratio-from('landscape', '10001/10000');
 @include ratio-from('horizontal', '10001/10000');
